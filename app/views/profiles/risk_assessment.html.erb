@@ -1,0 +1,32 @@
+<h1>Risk Assessment</h1>
+<p>Based on your profile information, we can provide the following risk assessment.</p>
+
+<h3>BMI</h3>
+<% if @user.bmi.present? %>
+  <p><%= display_var(@user.bmi) %> <%= "(#{bmi_level(@user.bmi)})" %>
+<% else %>
+  <p> We cannot calculate your bmi. Please click on <%= link_to 'Profile', profiles_path %> and enter your height and weight.</p>
+<% end %>
+
+<h3>Hypertension Risk in 8 years</h3>
+<% if @user.hbp_risk.present? %>
+<p><%= display_var(@user.hbp_risk) %>
+<% else %>
+<p> We cannot calculate your hypertension risk. Please click on <%= link_to 'Profile', profiles_path %> and enter your age, gender, height, weight, blood pressure and if you smoke.</p>
+<% end %>
+
+<h3>Cardiovascular Risk in 10 years</h3>
+<% if @user.cvd_risk.present? %>
+<p><%= display_var(@user.cvd_risk) %>
+<% else %>
+<p> We cannot calculate your cardiovascular risk. Please click on <%= link_to 'Profile', profiles_path %> and enter your age, gender, height, weight, blood pressure and if you smoke.</p>
+<% end %>
+
+<h3>Diabetes Risk in 10 years</h3>
+<% if @user.diabetes_risk.present? %>
+<p><%= display_var(@user.diabetes_risk) %>
+<% else %>
+<p> We cannot calculate your diabetes risk. Please click on <%= link_to 'Profile', profiles_path %> and enter your gender, height, weight, blood pressure, blood sugar, hdl cholesterol and if you smoke.</p>
+<% end %>
+
+<%= render 'track_form' %>

@@ -1,0 +1,19 @@
+<h2>Log History</h2>
+<p>You can update your SLOtility log by selecting a date below.</p>
+<% counter = 0 %>
+<table >
+<% 4.times do %>
+  <tr>
+  <% 7.times do %>
+    <td width='50' height='50' title='<%= (@start_date + counter.day).to_time.strftime("%a %m/%d/%Y") %>' style='border:2px solid <%= (counter + 1 == @current_count) ? 'red' : 'black' %>; background-color: <%= @logged_dates.include?(@start_date + counter.day) ? 'green' : nil %>'>
+      <% if Time.zone.now.to_date >= (@start_date + counter.day) %>
+        <%= link_to (counter + 1), ('/logging/update/' + (counter + 1).to_s), {:style => 'display:block;width:100%;height:100%;text-decoration:none'} %>
+      <% else %>
+        <span style='display:block;width:100%;height:100%;text-decoration:none;cursor:not-allowed'><%= counter + 1 %></span>
+      <% end %>
+      <% counter = counter + 1 %>
+</td>
+<% end %>
+</tr>
+<% end %>
+</table>

@@ -1,0 +1,57 @@
+<%= f.submit "Done" %>
+
+<% if @intervention.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
+
+    <ul>
+    <% @intervention.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :abbrev %><br>
+  <%= f.text_field :abbrev %>
+</div>
+<small>Text areas support a lightweight "Markdown" syntax. <a href="http://support.iawriter.com/help/kb/general-questions/markdown-syntax-reference-guide">Markdown syntax reference guide</a> and <a href="http://scottboms.com/downloads/documentation/markdown_cheatsheet.pdf">Markdown cheatsheet.pdf</a> are helpful.</small>
+
+<div class="field">
+  <%= f.label :benefit %><br>
+  <%= f.text_area :benefit %>
+</div>
+<div class="field">
+  <%= f.label :principle_id %><br>
+  <%= f.text_field :principle_id %>
+</div>
+<div class="field">
+  <%= f.label :tracks %><br>
+  <div>TBD<%#= @intervention.tracks.map { |item| item.display_name }.join(", ").html_safe %></div>
+</div>
+<div class="field">
+  <%= f.label :regimen %><br>
+  <%= f.text_area :regimen %>
+</div>
+<div class="field">
+  <%= f.label :alternate_options %><br>
+  <%= f.text_area :alternate_options %>
+</div>
+<div class="field">
+  <%= f.label :maintenance_dose %><br>
+  <%= f.text_area :maintenance_dose %>
+</div>
+<div class="field">
+  <%= f.label :safety_precautions %><br>
+  <%= f.text_area :safety_precautions %>
+</div>
+<div class="field">
+  <%= f.label :image %><br>
+  <%= f.file_field :image %>
+</div>
+
+<%= f.submit "Done" %>

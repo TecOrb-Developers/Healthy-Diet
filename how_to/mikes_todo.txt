@@ -1,0 +1,231 @@
+Mike's worklog and todo list
+
+DONE active admin.  similar?  DSL.  Arbre?  Everything goes into model including views. Not rails-like.
+  CRUD interface into models.
+  Nice views and filters. 
+  Active Admin looks like a good solution for providing an admin interface including filtering, tracking stuff, dashboard, etc.
+  
+DONE tables for storing interventions
+
+DONE Paypal donations? 
+   Recommend using: http://pledgie.com to create a new campaign and add button image to site.
+   https://pledgie.com/campaigns/2178   See use at: https://github.com/justinfrench/formtastic
+
+DONE gem formtastic for creating forms. LOOK AT IT.  
+  Mike: Looks promissing. Installing.  Dates picked with year, month, day selects. Fields names are white and are invisible.
+
+DONE application view to display notices and flashes.   Flash notice appears, but isn't styled.
+
+DONE created link to Mark's books on shared Google drive so can read offline.  Started Rails AntiPatterns.
+
+DONE change models to update. validatation (and types) for all fields.  Use in UI.  
+
+TODO 'show' should show all has_many relationships (test it)  try queries
+  TODO see how seed data is created
+
+TODO method to show correct type.  FORMtastic.
+     convert forms to use proper validations.
+     nice CSS.
+     checkboxes for history and other fields.  Need radio buttons for each diseases.    
+
+TODO when creating a new profile, can't complete.  Birthday field can't be blank message.  Doesn't keep other values.
+  TODO use seeds to auto-fill profile.  Should clarify optional vs. required fields. Put optional on second form?
+
+TODO 1 for disease history, does your mother or father have it? Boolean checkboxes changed to: yes, no, unknown, nil (default)
+
+TODO #2 new views for getting user input.
+
+TODO log supplements
+
+TODO 'my slotility' to be dashboard.  Slotility.com.  When you sign in, goes to dashboard.  Require first last gender, birthdate.   Enter date for birthdate.  enter age as integer or date.  all fields optional.  Dashboard, fill in profile on profile tab.
+
+
+
+
+--------
+Questions: when gem, such as formtastic, is installed, where do the actual files reside?
+Q: Is it true that I must fill in a long profile form before doing any
+PROBLEM: Error when loading seeds.rb:
+  Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile.
+PROBLEM: Couldn't create database for {"adapter"=>"postgresql", "database"=>"testdb", "pool"=>5, "timeout"=>5000}
+
+-------
+TODO: creating separate test of trials that can be integrated.  Doesn't need login.  
+  DailyUpdatesController
+  
+  SelectInterventions (1 for now)
+  AskAboutUse
+    Shows last time with update
+    if no supplement use for yesterday, then
+      Did you use Supplement yesterday? ()
+    Did you use Supplement today?
+
+  Can the trials of different supplements start at different times?
+
+  State machine: 
+    NoTrials  -> start
+    InTrial
+
+  See other people who have started trials.  Are they sticking with it?
+
+  For each intervention: every day
+  Yes, No, thoughts/comments?
+
+A user decides to try SLOtility.  After reading about the various supplements or filling in a profile and getting recommendations, a user wants to participate in a 30-day trial.  
+
+Use gets information about the trial, and selects a date to start (today).
+Ask user if they have the supplement to take.  If not, recommend starting when they do have it.
+User can start a trial with a supplement.  They see a 30-day calendar-like grid for each supplement that they will be completing over the next 30 days.  (4 weeks + 2 day)  
+
+query: date_that_supplement_last_recorded?
+       if yesterday,
+         show supplement_taken_today?
+       else if today,
+         don't show questions
+
+       supplement_taken_yesterday?
+       
+views represents states.  controller methods are state transitions.  state variables are in the database.
+
+a_intervention.trials.new(user=current_user)
+
+dashboard shows member
+  member/trials
+    current_trials
+    non_current_trials
+  member/trial/new form  if during_trial
+    "Start Today" button
+
+  state machine:
+    if new object, new
+    else no supplement
+      choose_supplement  
+    during_trial
+      edit (daily_update)
+    else
+      show (final)
+  
+Trial has:
+goals, start, end, supplement, uses
+
+when showing a trial, display uses and new use form.
+
+Dashboard = user?
+ So, user has users_controller
+ All the user's trials and other info available through user
+ create trials and uses through user's fields
+
+supplement has data fields.
+
+Controllers:
+ UsersController
+ TrialController
+ UseController
+
+Models:
+cd ~/dev; mkdir slotest; cd slotest; git init; cd ..; rails new slotest; cd slotest
+git add .; git commit -m "rails new slotest"
+cd slotest; rails s
+
+rails g scaffold User name:string  # has_many :trials 
+
+rails g scaffold Trial user:references intervention:string   # belongs_to :user  has_many :uses
+
+rails g scaffold Use trial:references date:date taken:boolean comment:string  # belongs_to :trial
+
+git add -A .; git commit -m "scaffold User name:string  scaffold Trial user:references intervention:string  scaffold Use trial:references date:date taken:boolean comment:string"
+
+
+
+seeds
+User.create!({name:"Mike"})
+User.trials.create!({intervention: "cinnamon"})
+
+http://localhost:3000/user
+
+Trial.new  supplements, 30-day, goals. 
+ Trial.daily_update.create("")
+
+correlation between supplements and bio-data.  
+
+ask for each supplement.  
+
+can't have one controller
+
+/dashboard
+
+/dashboards
+
+/dashboards/index
+
+/dashboards/
+
+/trial/new
+
+render as json  RESTFUL to create a new trial.   more complicated.
+
+Mark: url for trial.  slotility.com/dashboard   
+
+/trial/
+
+---------------
+TODO
+Need intervention controller:
+GET /intervention  to list all interventions
+GET /intervention/:id to show details on an intervention
+
+Need disease controller:
+GET /disease to list all the diseases
+GET /disease/:id to show details about a disease
+
+----
+REQ: All trials begin on the 15th and go to the 14th of the next month.  People can join a running trial at any time. Show number of people in the current trial.  
+
+WAIT (Mark) Find pre-built free forum for communicating between users.
+
+MARK Change wording on prototype to show that a trial is in progress and how many people are in it.  Ideally, show their screen name. Ex: Mike S2839
+
+TODO get a privacy policy 
+
+DONE #1: upload content from PDF file into seed.  Create image assets and thumbnails.  
+
+WAIT show page with supplements as images.  feature 2-4, mini-feature 4-8, and list names for others.  Initially, just show grid of images.  Perhaps with semi-transparent overlay on roll-over with description.
+
+----
+TODO #1: deploy to Heroku  DONE.
+
+pg_dump .  supplements page.  select same supplements.  checkbox.  delete all associations and recreate.  left trial on a date.  
+
+at Nutrisystem spent 90% of time on database IT.  Restore database, moving data.  Nightmare.  Backing up.  
+
+pgAdmin III, 
+
+----
+Try installing another admin client for Postgres database
+
+http://www.navicat.com/download/navicat-for-postgresql
+
+How to determine which port Postgres is listening on?
+netstat -na | grep 54
+
+Looks like 5432
+
+
+
+---
+Mark's changes:
+could ignore entire profile. 
+create table to associate users and supplements.  Trial.  vs.  UsersTrials   UserId and InterventionID.  Trials future for specific users. 
+   
+   Couldn't use application model class.  breaking associations.  ActiveRecord model.  For one class.  
+
+trial has start and end with users.
+
+table to log compliance.  
+
+Trial: user, intervention, start_date, end_date, compliance.  30 N,Y,nothing.   UsersTrials unique ID.   
+
+
+
+
+

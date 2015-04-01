@@ -1,0 +1,29 @@
+<%= f.submit "Done" %>
+
+<% if @page.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+    <ul>
+    <% @page.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<small>Text areas support a lightweight "Markdown" syntax. <a href="http://support.iawriter.com/help/kb/general-questions/markdown-syntax-reference-guide">Markdown syntax reference guide</a> and <a href="http://scottboms.com/downloads/documentation/markdown_cheatsheet.pdf">Markdown cheatsheet.pdf</a> are helpful.</small>
+
+<div class="field">
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+</div>
+
+<%= f.submit "Done" %>

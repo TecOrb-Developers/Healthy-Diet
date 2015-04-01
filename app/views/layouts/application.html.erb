@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Using Bootstrap 3.0 -->
+<html>
+  <head>
+   <title><%= h(yield(:title).presence || "Slotility") %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= yield(:head) %>
+    <%= yield(:javascript) %>
+  </head>
+  <body>
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>">
+      <div class="container container_12 clearfix">
+        <div class="grid_12">
+          <p><%= value %></p>
+        </div>
+      </div>
+    </div>
+  <%- end -%>
+    <%= render 'shared/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= render 'shared/footer' %>
+    <%= javascript_include_tag :application %>
+  </body>
+</html>

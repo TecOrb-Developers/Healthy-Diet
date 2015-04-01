@@ -1,0 +1,91 @@
+Installing PostgreSQL on Mac OS X Mavericks for use with Ruby Rails
+
+Goal: Using Mac OS X, Mavericks 
+      Rails developer
+      May be using SQLite, but want to move to Postgres 
+        because you are deploying to Heroku or another service that uses Postgres and you
+        want to match the production database 
+      Existing Rails app (dev/slotility) that currently uses sqlite and want to change to postgres database
+
+1. Install postgres locally (using Homebrew)
+   % brew postgresql
+   If brew not found, install brew (see other docs)
+
+     Test the installation by manually starting up the postgres database engine using:
+     % postgres -D /usr/local/var/postgres
+
+   Create a database engine user.  Consider using a generic name such as: postgres_admin
+   % createuser postgres_admin
+
+   Make database start automatically upon startup by adding link to Library/LaunchAgents
+   % ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+
+
+2. Install Ruby on Rails "adapter"
+
+   ARCHFLAGS="-arch x86_64" gem install pg
+     where ARCHFLAGS setting comes from: brew info postgresql
+
+
+FOR EACH RAILS APP:
+
+3. Create a database user for the app where the username matches the app's name. 
+
+   % createuser slotility
+
+4. Create development and production databases with the user you just created 
+   and a database name that also uses the name of your Rails app.
+
+   % createdb -Oslotility -Eutf8 slotility_development
+   % createdb -Oslotility -Eutf8 slotility_test       
+
+   Test that you can connecting to it using app username and app database name.
+   % psql -U slotility slotility_development
+
+5. Configure your app (slotility) to use postgres 
+ 
+   Add to Gemfile:
+      gem 'pg'
+
+   Edit config/database.yml file to use the newly created username and database name 
+
+    development:
+      adapter: sqlite3 CHANGE TO: postgresql
+      encoding: unicode
+      database: db/development.sqlite3  CHANGE TO: slotility_development
+      pool: 5
+      ADD: username: slotility
+      ADD: password: 
+
+   In your Rails directory, run database setup with:
+   % cd dev/slotility
+   % rake db:setup
+
+6. Test app
+   % rails s
+   Show your app in a browser (http://localhost:3000/______)
+
+   Optionally verify the database:
+   % psql -U slotility slotility_development
+   List all tables:
+   => \dt
+   Show table definition for YOUR_TABLE_NAME:
+   => \d YOUR_TABLE_NAME
+   Show table data using SQL:
+   => select * from YOUR_TABLE_NAME;
+
+7. Loading data:
+   Drop database:
+   psql -d 
+   psql -d slotility_development -f db/seed_data.sql
+
+
+
+Other useful resources and instructions:
+http://www.postgresql.org/download/macosx/
+http://www.rubyinside.com/how-to-install-and-use-postgres-on-os-x-for-ruby-and-rails-development-4999.html
+http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
+
+
+
+

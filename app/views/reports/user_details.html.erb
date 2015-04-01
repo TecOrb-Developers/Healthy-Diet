@@ -1,0 +1,31 @@
+<h1>User Details</h1>
+<p>Created: <%= @user.created_at.to_date %></p>
+<p>User Id: <%= @user.id %></p>
+<p>Email: <%= @user.email %> </p>
+<p>First: <%= @profile.first_name %></p>
+<p>Last: <%= @profile.last_name %></p>
+<p>Display: <%= @profile.display %></p>
+<p>Sign In Count: <%= @user.sign_in_count %></p>
+<p>Last Signed In: <%= @user.last_sign_in_at.to_date %></p>
+
+<h2>Histories</h2>
+<ul>
+<% @histories.each do |h| %>
+  <li><%= h.created_at.to_date %> <%= h.history_type %>: <%= h.disease.name %></li>
+<% end %>
+</ul>
+
+<h2>Variables</h2>
+<ul>
+<% @variables.each do |v| %>
+  <li><%= v.created_at.to_date %> <%= v.variable.name %>: <%= v.value %> <%= v.value2 %></li>
+<% end %>
+</ul>
+
+<h2>Logging Data</h2>
+<ul>
+<% @intervention_uses.each do |iu| %>
+  <li><%= iu.on_date.to_date %> <%= iu.intervention.name %>: <%= iu.taken ? 'Taken' : 'Not Taken' %></li>
+<% end %>
+</ul>
+

@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_self
+ * require formtastic
+ * require my_formtastic_changes
+ *= require_tree .
+ *= require home
+*/
+
+BODY a {  /* HACK trying to overwrite the default so people can see what links there are */
+  color: blue;
+}
+
+.flash {
+  &.error {
+    border: solid 2px #900;
+          background-color: #FF8585;
+        }
+  &.notice {
+    border: solid 2px #26722D;
+          background-color: #C4E7C0;
+        }
+  color: black;
+  z-index: 999;
+  position: fixed;
+  font-weight: bold;
+  width: 96%;
+  margin: 20px;
+        p {
+                font-size: 110%;
+                margin: 15px 0;
+        }
+}
+
+.intervention_listing {
+  padding: 10px;
+  margin: 5px;
+  text-align: top;
+  border: 1px solid #BBB;
+  display: inline-block; 
+  position:relative;
+  width:200px; 
+  height:200px;
+  &:hover {
+    opacity:1.0;
+  }
+  H2 {
+    margin-top:0px;
+    margin-bottom:0px;
+    position:absolute;
+    height:100%;
+    width:100%;
+    background-repeat:no-repeat;
+    background-size:cover;
+    color:black;
+  }
+}
+
+.intervention {
+  .image {  
+    width:400px; 
+    height:300px;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+  .tracks {
+    font-size:1.5em;
+  }
+  .benefit {
+    font-size: 2em;
+    font-style: italic;
+  }
+  H3 P {
+    font-size:1.0em;
+    line-height:1.2em;
+  }
+  .safety_precautions {
+    background-color: yellow;
+    padding:20px;
+    width:500px;
+    border:1px solid black;
+    margin:15px;
+  }
+}
+
+.intervention_after {
+  background-repeat:no-repeat;
+  background-size:cover;
+  /* background: url(/intervention/cinnamon.png); */
+  top: 0;
+  left: 0;
+  width:200px;
+  height:200px;
+  position: absolute;
+  z-index: 40;   
+  opacity: 0.5;
+  &:hover {
+    opacity:0.2;
+  }
+}
+
+tr:hover {
+  background-color:#FEF1B5;  /* buttermilk (yellow) */
+  cursor: pointer;
+}
+
+.admin {  /* link from user world to admin world. see views/interventions/index.html */
+  float:right;
+  font-size:12px;
+  color:#777;
+}
+
+.edit_intervention, .new_intervention, .edit_page, .new_page {
+  input { 
+    width:100%; 
+  }
+  input[type=submit] {
+    width:60%;
+    background-color: #AADD00;
+  }
+  textarea {
+    width:100%; height:5em;
+  }
+}
+
+.edit_page, .new_page {
+  textarea {
+    width:100%; height:40em;
+  }
+}
+
+.pages_listing {
+  padding: 10px;
+  margin: 5px;
+  text-align: top;
+  border: 1px solid #BBB;
+  display: inline-block; 
+  position:relative;
+  width:200px; 
+  height:200px;
+  background-color:#EEE;
+  H2 {
+    margin-top:0px;
+    font-size:1.4em;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color:white;
+  }
+}
+
+span.delete {  /* on edit instance to keep it out of harm's way */
+  float: right;
+}
+
+.clickable:hover {   /* on home page for sections and images that you can click on */
+  cursor:pointer;
+  background-color:white;
+}
+

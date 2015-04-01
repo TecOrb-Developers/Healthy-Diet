@@ -1,0 +1,7 @@
+id, name, track_history, track_medicine
+2 obesity f f
+3 diabetes  t t
+4 high_blood_pressure t t
+5 heart_disease t t
+6 stroke  f f
+7 kidney_disease  f f

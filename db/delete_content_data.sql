@@ -1,0 +1,9 @@
+delete from diseases;
+delete from variables;
+delete from intervention_types;
+delete from interventions;
+delete from interventions_diseases;
+delete from interventions_contraindications;
+delete from tracks;
+delete from principles;
+delete from pages;

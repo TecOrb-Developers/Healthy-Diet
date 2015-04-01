@@ -1,0 +1,35 @@
+<div class="container" style="background-color:black; color:white;">
+  <style> /* hack because RAILS putting FORM and DIV around a button  */
+   FORM.button_to { display:inline; } 
+   FORM.button_to DIV { display:inline; } 
+   .btn-default.active { background-color: #5cb85c; color:white; border-radius:0px; }
+   .btn-default:hover { background-color: #419641; color:white; border-radius:0px;}
+  </style>
+  <% if user_signed_in? -%> <!-- HACK -->
+   <style>
+    .btn-default { background-color: black; color:white; font-weight:bold; border: 0px; border-right:1px; border-radius:0px;  text-shadow:none;}
+   </style>
+  <% else %>
+   <style>
+    .btn-default { background-color: white; color:black; font-weight:bold; border: 0px; border-right:1px; border-radius:0px;  text-shadow:none;}
+   </style>
+  <% end %>
+  <div class="row" style="padding-left:5px;">
+    <div class="btn-group btn-group-md">
+      <%= link_to "SLOtility", root_path, class:"btn btn-default active" %>
+      <% if user_signed_in? -%>
+        <%= link_to "Dashboard", dashboard_index_path, class:"btn btn-default", method:"get" %>
+        <%= link_to "Profile", profiles_path, class:"btn btn-default" %>
+        <%= link_to "Risk/Tracks", risk_assessment_profiles_path, class:"btn btn-default" %>
+        <%= link_to "Supplements", supplement_selection_profiles_path, class:"btn btn-default" %>
+      <% else %>
+        <%= link_to "Intro", "/pg/intro", class:"btn btn-default" %>
+        <%= link_to "Supplements", "/interventions", class:"btn btn-default" %>
+        <%= link_to "Principles", "/pg/principles", class:"btn btn-default" %>
+        <%= link_to "Steps", "/pg/steps", class:"btn btn-default" %>
+      <% end %>
+      <%= render 'shared/login_header' %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+trial = intervention_trial
+use = intervention_use
+
+trial has default duration of 30 days
+
+
+trials#index
+displays current trials and old trials.  Click to create new trial.
+
+trial#new
+show pre-requirements for starting trial (having 30 day supply of supplement)
+commitment for daily updates for using supplement
+button to create
+
+trial#create 
+start date, duration, end date, 
+
+trial#show
+displays supplement, goals, uses, new_use, and health line
+
+use#new
+date = if no use for yesterday, then yesterday else today
+taken = yes, no
+comments = optional  How are you doing?  o great o ok o so-so o not-so-good
+
+use#show  (when rolling over a trial calendar)
+date, taken, comments
+
+

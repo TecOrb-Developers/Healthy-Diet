@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "Slotility") %></title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag :application %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%>
+      <%= render 'shared/header' %>
+
+      <!--      <p><%#= link_to 'Home', root_path %></p> -->
+  <% if user_signed_in? -%>
+    <div id="user_login_box" style="float:right">
+      <span id="Header_loginMenuHeader">
+      <%= link_to current_user.email, edit_user_registration_path %> | 
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %></span>
+    </div>
+  <% else -%>
+    <span id="Header_loginMenuHeader"><%#= link_to 'Sign up', new_user_registration_path %><%= link_to 'Get Started!', new_user_session_path %></span>
+  <% end -%>
+      <% if admin_signed_in? -%>
+        <div id="admin_login_box" style="float:left">
+          <%= current_admin.email %> |
+          <%= link_to 'Admin section', admins_path %> |
+          <%= link_to 'Sign out', destroy_admin_session_path, method: :delete %>
+        </div>
+      <% end -%>
+      <div style="clear:both"></div>
+
+      <%- if show_title? -%>
+        <h1><%=h yield(:title) %></h1>
+      <%- end -%>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

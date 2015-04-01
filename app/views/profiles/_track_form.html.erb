@@ -1,0 +1,16 @@
+<h1>Track Selection</h1>
+<p>Select a track to personalize your SLOtility plan. You may choose more than one.</p>
+<%= form_for :track_selection, url: track_selection_profiles_path do |f| %>
+  <p>
+  <%= fields_for :track_selection do %>
+    <% Track.all.each do |track| %>
+      <%= check_box_tag "track_selection[]", track.id, nil, :id => nil %><%= track.name.humanize %><br>
+    <% end %>
+  <% end %>
+  </p>
+
+  <p>
+  <%= f.submit "Select" %>
+  </p>
+<% end %>
+

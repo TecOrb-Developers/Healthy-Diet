@@ -1,0 +1,21 @@
+How to resolve production issues
+
+If http://slotility.herokuapp.com returns: We're sorry, but something went wrong.
+
+Check logs:
+% heroku logs --tail
+    2014-01-20T01:32:41.079090+00:00 heroku[router]: at=info method=GET path=/ host=slotility.herokuapp.com request_id=cdc26dc3-4e06-4359-9219-058e6945fb0a fwd="68.83.138.180" dyno=web.1 connect=1ms service=10085ms status=500 bytes=1266
+    2014-01-20T01:32:51.115955+00:00 app[web.1]: I, [2014-01-20T01:32:31.015425 #2]  INFO -- : Started GET "/" for 68.83.138.180 at 2014-01-20 01:32:31 +0000
+    2014-01-20T01:32:51.115955+00:00 app[web.1]: I, [2014-01-20T01:32:41.017613 #2]  INFO -- : ** [Bugsnag] Notifying http://notify.bugsnag.com of ActiveRecord::ConnectionTimeoutError from api_key 5459c067b730b95a14fd3ee8f3958af7
+    2014-01-20T01:32:51.115955+00:00 app[web.1]: F, [2014-01-20T01:32:41.089622 #2] FATAL -- : 
+    2014-01-20T01:32:51.115955+00:00 app[web.1]: ActiveRecord::ConnectionTimeoutError (could not obtain a database connection within 5.000 seconds (waited 5.000 seconds)):
+
+Check database connection.  Ok.
+% psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb
+
+Was an email sent when failure occured?  If this line appears, then it should have been sent:
+  [Bugsnag] Notifying http://notify.bugsnag.com of ActiveRecord::ConnectionTimeoutError from api_key 5459c067b730b95a14fd3ee8f3958af7
+  ActiveRecord::ConnectionTimeoutError (could not obtain a database connection within 5.000 seconds (waited 5.000 seconds)):
+
+How to restart server?   See: https://devcenter.heroku.com/articles/dynos
+% heroku restart

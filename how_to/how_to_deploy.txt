@@ -1,0 +1,101 @@
+Deploying to Heroku
+
+
+git push heroku master
+heroku pg:reset DATABASE_URL
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/content_data.sql
+
+Database: deapr1bc4cuec3
+
+First test with slotility.  
+
+% git push heroku master
+
+Take development database and move to production:
+$ heroku pg:push slotility_development DATABASE_URL --app slotility 
+
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/delete_content_data.sql
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/content_data.sql
+
+
+Assets should be precompiled on development machine.
+
+RAILS_ENV=production bundle exec rake assets:precompile
+
+
+To git@heroku.com:slotility.git
+   b1036e4..6b1f318  master -> master
+
+http://slotility.herokuapp.com  WORKED
+
+If something errors, check logs:
+heroku logs --tail
+
+and refresh page
+
+If you are the application owner check the logs for more information
+
+https://dashboard.heroku.com/apps/slotility/activity
+
+% heroku pg:psql
+---> Connecting to HEROKU_POSTGRESQL_IVORY_URL (DATABASE_URL)
+psql (9.3.2, server 9.3.1)
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+deapr1bc4cuec3=>
+
+https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on
+
+Take production database and move to development database:
+$ heroku pg:pull HEROKU_POSTGRESQL_BLUE_URL slotility_development --app slotility  
+
+Take development database and move to production:
+
+$ heroku pg:push slotility_development DATABASE_URL --app slotility  
+ !    Remote database is not empty.
+ !    Please create a new database, or use `heroku pg:reset`
+
+heroku pg:reset DATABASE_URL
+
+adding /Applications/Postgres.app/Contents/MacOS/bin to $PATH 
+
+to create or drop databases. To drop and recreate your database use pg:reset.
+$ heroku pg:reset DATABASE
+
+PRODUCTION:
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/delete_content_data.sql
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/content_data.sql
+
+
+To view an app's logs on Heroku:
+heroku logs -t
+
+heroku logs -p postgres -t
+
+heroku logs --tail
+
+How to run a SQL script on Heroku database?
+
+DATABASE_URL:  postgres://username:password@host:port/dbname
+becomes
+
+psql -h host -p port -d dbname -U username -f datafile.sql
+
+postgres://fzxruwdtmavxcb:{{password}}@ec2-54-204-42-178.compute-1.amazonaws.com:5432/deapr1bc4cuec3
+
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/delete_content_data.sql
+psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/content_data.sql
+
+
+Attempted to connect to Heroku database from Navicat database admin GUI and got error:
+
+FATAL:  no pg_hba.conf entry for host "50.177.45.238", user "fzxruwdtmavxcb", database "deapr1bc4cuec3", SSL off
+WHY? need to enable SSL to connect to Heroku database.
+
+So many databases are listed in Navicat under Heroku, that use Open Database... option.
+
+
+2014-01-12T20:24:57.293332+00:00 app[web.1]: E, [2014-01-12T19:59:37.984028 #2] ERROR -- : PG::UndefinedTable: ERROR:  relation "locations" does not exist
+
+
+
+

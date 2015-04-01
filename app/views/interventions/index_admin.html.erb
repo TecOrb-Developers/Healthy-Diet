@@ -1,0 +1,36 @@
+<h1>Listing interventions <small><%= link_to '+ New', new_intervention_path %></small></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Name</th>
+      <th>Abbrev</th>
+      <th>Benefit</th>
+      <th>Principle</th>
+      <th>Regimen</th>
+      <th>Alternate options</th>
+      <th>Maintenance dose</th>
+      <th>Safety precautions</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interventions.each do |instance| %>
+      <tr onclick=<%= show_instance instance %> >
+        <td><%= instance.title %></td>
+        <td><%= instance.name %></td>
+        <td><%= instance.abbrev %></td>
+        <td><%= c instance.benefit %></td>
+        <td><%= instance.principle_id %></td>
+        <td><%= c instance.regimen %></td>
+        <td><%= c instance.alternate_options %></td>
+        <td><%= c instance.maintenance_dose %></td>
+        <td><%= c instance.safety_precautions %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

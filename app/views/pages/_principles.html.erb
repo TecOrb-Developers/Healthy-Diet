@@ -1,0 +1,13 @@
+<style>
+.principles P { margin-left:30px;}
+.principle span { margin-right:5px; color: red;}
+</style>
+<div class="principles">
+ <% Principle.order(:id).each do |obj| %>
+  <div class="principle">
+    <H3><a name=<%= obj.id %> ><span><%= obj.id %>.</span><%= obj.name  %></a></H3>
+    <P class="description"><%= m obj.description %></P>
+  </div>
+ <% end %>
+</div>
+ 

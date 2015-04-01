@@ -1,0 +1,413 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/*************Common CSS Property******************/
+body, div, span,
+h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+img, ins, kbd, q, s, samp,
+small, strike, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0 none;
+  font-size: 100%;
+  background: transparent; }
+
+body {
+  line-height: 1;
+  background-color: #000;
+  width: 100%; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/********End Of Reset CSS*********/
+#page {
+  float: left;
+  width: 100%;
+  height: auto;
+  background: #000; }
+
+/*************Start Header***********/
+.header {
+  width: 100%;
+  height: 117px;
+  float: left;
+  background: url("/assets/header_bg.png") repeat-x; }
+
+.wrapper {
+  width: 1025px;
+  height: auto;
+  margin: 0 auto;
+  position: relative; }
+
+.logo {
+  float: left;
+  width: 246px;
+  height: 92px; }
+
+.logo img {
+  position: relative;
+  margin: 35px 0 0 12px;
+  z-index: 100; }
+
+.header_inner {
+  width: 755px;
+  height: 65px;
+  float: left;
+  padding-left: 22px; }
+
+.heading {
+  display: block;
+  color: #FFF;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 65px;
+  width: 335px;
+  float: left; }
+
+/***********Social Media**********/
+.social_media {
+  float: left;
+  width: 181px;
+  height: 33px;
+  margin: 18px 0 0 150px; }
+
+.follow_us {
+  float: right;
+  height: 33px;
+  display: inline; }
+
+.follow_us li {
+  float: left;
+  margin-left: 12px;
+  list-style: none;
+  display: inline-block; }
+
+.follow_us a {
+  background: url("/assets/media_icon.png") no-repeat;
+  display: block;
+  width: 33px;
+  height: 33px;
+  text-indent: -9999px; }
+
+.follow_us a.pinterest {
+  background-position: 0 0; }
+
+.follow_us a.facebook {
+  background-position: -50px 0; }
+
+.follow_us a.twitter {
+  background-position: -99px 0; }
+
+.follow_us a.google_plus {
+  background-position: -149px 0; }
+
+.follow_us a.pinterest:hover {
+  background-position: 0 -43px; }
+
+.follow_us a.facebook:hover {
+  background-position: -50px -43px; }
+
+.follow_us a.twitter:hover {
+  background-position: -99px -43px; }
+
+.follow_us a.google_plus:hover {
+  background-position: -149px -43px; }
+
+.login {
+  color: #FFF;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 65px;
+  text-decoration: none;
+  padding-left: 20px; }
+
+.login_main {
+  border: 1px solid #BABABA;
+  float: left;
+  height: auto;
+  margin: 30px 0 20px 200px;
+  padding: 9px;
+  width: 518px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
+  behavior: url(../PIE.htc);
+  position: relative; }
+
+/**********Navigation**************/
+.nav {
+  float: left;
+  width: 755px;
+  height: 52px; }
+
+.nav ul {
+  float: left;
+  margin: 0;
+  padding: 0; }
+
+.nav ul li {
+  display: inline;
+  list-style: none;
+  line-height: 52px;
+  /*border-right:1px solid #fc2626;*/
+  margin: 0;
+  padding: 0;
+  background: url("/assets/li_bg.png") no-repeat right center; }
+
+.nav ul li a {
+  color: #000;
+  font-family: Arial;
+  font-size: 17px;
+  text-decoration: none;
+  padding: 0 7px 0 7px; }
+
+.nav ul .lastchild {
+  background: none; }
+
+.nav ul li a span {
+  color: #fc2626; }
+
+/**************End Header**************/
+/*************Start Container***********/
+.container {
+  float: left;
+  width: 100%;
+  height: auto; }
+
+.container_inner {
+  float: left;
+  width: 100%;
+  height: auto;
+  background: #fff; }
+
+.banner_container, .banner {
+  float: left;
+  width: 100%;
+  height: auto; }
+
+.main_container {
+  float: left;
+  width: 95%;
+  height: auto;
+  padding: 20px;
+  display: inline; }
+
+.banner img {
+  float: left;
+  position: relative;
+  z-index: 99; }
+
+.slide_step {
+  float: left;
+  width: 430px;
+  height: 350px;
+  position: absolute;
+  background: url("/assets/step_bg.png") no-repeat;
+  left: 50px;
+  top: 50px;
+  z-index: 100;
+  text-align: center; }
+
+.slide_step span {
+  display: block;
+  font-family: Arial;
+  font-size: 25px;
+  margin-top: 25px;
+  color: #000; }
+
+.slide_step p {
+  font-family: Arial;
+  font-size: 12px;
+  color: #000; }
+
+.slide_box {
+  float: left;
+  width: 100%;
+  height: auto;
+  position: relative; }
+
+.slide_box_inner {
+  width: 335px;
+  height: 230px;
+  margin: 0 auto;
+  background: url("/assets/slide_bg.jpg") repeat;
+  position: relative; }
+
+.slide_box_inner p {
+  color: #000000;
+  float: left;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 7px;
+  max-height: 160px;
+  overflow: hidden;
+  padding: 0 20px 20px;
+  text-align: left; }
+
+.slide_box_inner a {
+  font-family: Arial;
+  font-size: 12px;
+  color: #fc2626;
+  text-decoration: underline; }
+
+/*************End Container**************/
+/***************** Start Footer *****************/
+.footer {
+  width: 100%;
+  height: 200px;
+  float: left;
+  padding: 30px 0; }
+
+.footer_inner {
+  float: left;
+  width: 100%;
+  height: auto;
+  text-align: center; }
+
+.footer_inner h1 {
+  font-family: Arial;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  padding-bottom: 15px; }
+
+.footer_inner p {
+  font-family: Arial;
+  font-size: 18px;
+  color: #fff;
+  padding-bottom: 15px; }
+
+.contact_form {
+  width: 400px;
+  height: auto;
+  margin: 0 auto; }
+
+.contact_form input {
+  float: left;
+  width: 330px;
+  height: 42px;
+  line-height: 42px;
+  margin: 0 0 15px 25px;
+  background: #fff;
+  border: none;
+  font-family: Arial;
+  font-size: 18px;
+  color: #8a8a8a;
+  padding-left: 20px; }
+
+.contact_form .submit {
+  float: left;
+  width: 255px;
+  height: 38px;
+  font-size: 16px;
+  color: #FFF;
+  font-family: Arial;
+  font-weight: bold;
+  line-height: 38px;
+  margin: 0 0 15px 70px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background: url("/assets/button_bg.png") repeat-x;
+  behavior: url(../PIE.htc);
+  position: relative; }
+
+/************** login Edit ****************/
+.btn_Login {
+  background-color: #6A6B62;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  behavior: url(../PIE.htc);
+  color: #fff;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 106px;
+  height: 30px;
+  font-family: Arial;
+  font-size: 14px;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 17px;
+  display: inline;
+  border: 0 none; }
+
+.main_container h1, h2, h3 {
+  font-weight: bold;
+  font-family: Arial;
+  color: Red; }
+
+.main_container p {
+  font-size: 14px;
+  font-family: Arial;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+.Registration_text_Box {
+  float: left;
+  margin-left: 16px;
+  color: #000;
+  width: 378px;
+  height: 25px;
+  border: none;
+  margin-top: 2px;
+  outline: 0px;
+  margin-bottom: 6px;
+  border: 1px solid #bababa;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
+  behavior: url(../PIE.htc);
+  position: relative; }
+
+/*******************End Footer*********************/
+.login_table {
+  float: left;
+  background: #fafafa;
+  width: 518px;
+  margin-top: 20px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px 6px 6px 6px;
+  behavior: url(../PIE.htc);
+  position: relative; }

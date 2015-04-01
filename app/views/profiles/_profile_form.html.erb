@@ -1,0 +1,217 @@
+<%= form_for @profile, url: create_or_update_profiles_path, method: :post, class:'form-horizontal' do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> errors</h2>
+      <ul>
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">First Name</label>
+    <div class="col-md-3">
+      <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">Last Name</label>
+    <div class="col-md-3">
+      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">What would you like to be called?</label>
+    <div class="col-md-3">
+      <%= f.text_field :display_name, class: 'form-control', placeholder: 'Display name' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">Gender</label>
+    <div class="col-md-3">
+      <%= f.radio_button :gender, 'male' %>
+      <%= f.label :gender, 'Male', :value => 'male' %>
+      <%= f.radio_button :gender, 'female' %>
+      <%= f.label :gender, 'Female', :value => 'female' %>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">Ethnicity</label>
+    <div class="col-md-3">
+      <%= f.select :ethnicity, ethnicity_options, {}, :include_blank => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">Age</label>
+    <div class="col-md-3">
+      <%= f.text_field :age, class: 'form-control', placeholder: 'Age' %>
+    </div>
+  </div>
+
+  <%= fields_for :weight do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Weight</label>
+      <div class="col-md-3">
+        <% selected_value = current_user.weight.value.round(0) rescue 0 %>
+        <%= select_tag "weight", options_for_select(options_for_weight, selected_value), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+     
+  <%= fields_for :height do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Height</label>
+      <div class="col-md-3">
+        <% selected_value = current_user.height.value.round(0) rescue 0 %>
+        <%= select_tag "height", options_for_select(options_for_height,selected_value), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+  
+  <%= fields_for :waist_circumference do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Waist Circumference (Pants Size)</label>
+      <div class="col-md-3">
+        <% selected_value = current_user.waist.value.round(0) rescue 0 %>
+        <%= select_tag "waist_circumference", options_for_select(options_for_waist_circumference,selected_value), :include_blank => true , class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :hip_circumference do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Hip Circumference</label>
+      <div class="col-md-3">
+        <% selected_value = current_user.hip.value.round(0) rescue 0 %>
+        <%= select_tag "hip_circumference", options_for_select(options_for_hip_circumference,selected_value), :include_blank => true , class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="form-group row">
+    <label for="inputType" class="col-md-4 control-label">Do you smoke?</label>
+    <div class="col-md-3">
+      <%= fields_for :smoke do %>
+        <% selected = current_user.smoke.value rescue 0.0 %>
+        <%= radio_button_tag :smoke, '1.0',  ((selected == 1.0) ? true : false) %> Yes
+        <%= radio_button_tag :smoke, '0.0', ((selected == 0.0) ? true : false) %> No
+      <% end %>
+    </div>
+  </div>
+
+  <%= fields_for :blood_pressure do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Blood Pressure</label>
+      <div class="col-md-2">
+        <% systolic_blood_pressure = current_user.blood_pressure.value.round(0) rescue 0 %>
+        <%= select_tag "systolic_blood_pressure", options_for_select(options_for_systolic_blood_pressure,systolic_blood_pressure), :include_blank => true, class: 'form-control' %>
+      </div>
+      <div class="col-md-2">
+        <% diastolic_blood_pressure = current_user.blood_pressure.value2.round(0) rescue 0 %>
+        <%= select_tag "diastolic_blood_pressure", options_for_select(options_for_diastolic_blood_pressure,diastolic_blood_pressure), :include_blank => true, class: 'form-control' %> mm Hg
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :blood_sugar do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Fasting Blood Sugar</label>
+      <div class="col-md-3">
+        <% blood_sugar = current_user.blood_sugar.value.round(0) rescue 0 %>
+        <%= select_tag "blood_sugar", options_for_select(options_for_blood_sugar,blood_sugar), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :hemoglobin_A1C do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Hemoglobin A1C</label>
+      <div class="col-md-3">
+        <% hemoglobin_a1c = current_user.hemoglobin.value rescue 0 %>
+        <%= select_tag "hemoglobin_A1C", options_for_select(options_for_hemoglobin_a1c,hemoglobin_a1c), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :total_cholesterol do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Total Blood Cholesterol</label>
+      <div class="col-md-3">
+        <% total_cholesterol = current_user.total_cholesterol.value.round(0) rescue 0 %>
+        <%= select_tag "total_cholesterol", options_for_select(options_for_total_cholesterol,total_cholesterol), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :hdl_cholesterol do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">HDL Cholesterol</label>
+      <div class="col-md-3">
+        <% hdl_cholesterol = current_user.hdl_cholesterol.value.round(0) rescue 0 %>
+        <%= select_tag "hdl_cholesterol", options_for_select(options_for_hdl_cholesterol,hdl_cholesterol), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :triglycerides do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Triglycerides</label>
+      <div class="col-md-3">
+        <% triglycerides = current_user.triglycerides.value.round(0) rescue 0 %>
+        <%= select_tag "triglycerides", options_for_select(options_for_triglycerides,triglycerides), :include_blank => true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :disease_history do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Do you have any of the following (select all that apply)?</label>
+      <div class="col-md-3">
+        <% Disease.all.each do |disease| %>
+          <% checked = ((current_user.disease_history.include? disease) ? true : false) %>
+          <%= check_box_tag "disease_history[]", disease.id, nil, :id => nil, checked: checked %><%= disease.name.humanize %><br>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= fields_for :family_history do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Do any members of your immediate family have any of the following (select all that apply)?</label>
+      <div class="col-md-6">
+        <% Disease.history.each do |disease| %>
+          <% checked = ((current_user.family_history.include? disease) ? true : false) %>
+          <%= check_box_tag "family_history[]", disease.id, nil, :id => nil, checked: checked %><%= disease.name.humanize %><br>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+
+
+  <%= fields_for :medicine_history do %>
+    <div class="form-group row">
+      <label for="inputType" class="col-md-4 control-label">Do you take medication for any of the following (select all that apply)?</label>
+      <div class="col-md-6">
+        <% Disease.medicine.each do |disease| %>
+          <% checked = ((current_user.medicine_history.include? disease) ? true : false) %>
+          <%= check_box_tag "medicine_history[]", disease.id, nil, :id => nil, checked:checked %><%= disease.name.humanize %><br>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= f.submit "Submit", class: 'btn btn-success' %>
+  </div>
+<% end %>
+

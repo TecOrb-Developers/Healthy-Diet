@@ -1,0 +1,87 @@
+SPEC for Dashboard
+
+
+Key: 
+[ Button ] 
+==> user action and where it leads to
+
+
+Screen shot for person who just joined:
+---------------------------------------
+Dashboard
+
+Health 
+Concerns:       [ Take Health Survey Questionnaire ] so we can help identify potential health concerns.
+
+Your goal(s)    [Set your Goals] 
+for Health      Setting goals helps you achieve them.                
+
+Foods to try:   [   Choose food   ] 
+                Select foods to try that will help you reach your health goals.
+
+Your programs:  [Start New]
+                Sign up for a 30-day program to reach your goals.
+                Next program starts Feb 1st.
+
+
+
+Screen shot for person who completed a program and is currently in a program:
+-----------------------------------------------------------------------------
+Dashboard
+
+********
+*  DAY 5 (20 days remaining)                Konjac Power program (12/25 to 1/25)
+*  Have you taken your Konjac Powder today?  [ YES ]  [ NO ]  
+*
+*  How'd it taste? __________________              NOTE: rotate through various questions such as:
+*******                                            What did you take it with?, Advice for others? 
+                                                
+
+Health          Overweight (Obese), and diabetes.
+Concerns:       [Update survey]
+                
+Your goal:      Lose Weight                         ==> Link to goal page
+                [  Set other goals  ]
+
+Foods to try:   o Red Meat                          ==> link to "Food" page 
+                o Konjac Powder - Day 5 
+                o Green Tea (11/25) - Success
+
+                [  Try other food options ]       
+
+                
+
+Your programs:  [  Start New  ]        Konjac Powder        Green Tea                     
+                Next program starts    Day 5                2 pounds lost
+                Feb 1st                12/25 to 1/25        11/25/2013 to 12/25/2013, 28 days
+                          
+
+
+
+"Goal" page
+---------------------------------------------
+Lose Weight
+
+{Grid of supplements that help you lose weight}
+
+
+"Food" page
+---------------------------------------------
+Foods that help you Lose Weight
+X Y Z
+
+Hear from others:
+"I loved it" -- Sue, 12/25/2013
+
+
+When a program is completed:
+---------------------------------------------
+
+Congratulations on finishing your SLOtility program! 
+
+Share you experiences on your SLOtility program...
+Would you recommend taking Green Tea?  ...
+
+Others would love to hear your story....              NOTE: input box formatted like a quote
+"|                              |
+ |______________________________|" - Mike2837, 12/25

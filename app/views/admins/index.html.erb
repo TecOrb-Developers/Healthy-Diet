@@ -1,0 +1,61 @@
+<% title 'Admin' -%>
+
+<H1>Content management apps</H1>
+
+<ul>
+
+<li><%= link_to "Pages", index_admin_pages_path %></a></li>
+<p>Pages such as Privacy, Terms, Intro, Steps, Supplements, etc. with static content that is editable in a lightweight markup.</p>
+
+<li><%= link_to "Interventions/Supplements", index_admin_interventions_path %></li>
+<p>View interventions as a user and if in development mode, click "Admin" to manage (create and edit) interventions </p>
+
+<li><%= link_to "Reports", reports_path %></li>
+<p>View user logging reports</p>
+
+</ul>
+
+<H1>Testing</H1>
+<p>For development, list of all pages that can be directly accessed</p>
+
+<!--
+<ol>
+<li><a href=""></a></li>
+<p>description</p>
+</ol>
+-->
+
+<ol>
+<li><a href="home">Home</a></li>
+<p>Public home page</p>
+
+<li><a href="/dashboard/new_user">Dashboard for New Members</a></li>
+<p>for new users who have never been in any trials, but have filled in a profile</p>
+
+<li><a href="/dashboard/start_trial">Dashboard Start Trial</a></li>
+<p>Clicking "Start Trial" link from dashboard for new members</p>
+
+<li><a href="/users/sign_up">Sign up</a></li>
+<p></p>
+
+<li><a href="/users/sign_in">Sign in</a></li>
+<p></p>
+
+<li><a href="/interventions">Interventions</a></li>
+<p>View interventions as a user and if in development mode, click "Admin" to manage (create and edit) interventions </p>
+
+<li><a href="/pages">Pages index</a></li>
+<p>Pages with static content that is editable in a lightweight markup</p>
+
+
+<h3>When logged in</h3>
+
+<li><a href="/profiles/new">New profile</a></li>
+<p></p>
+
+<li><a href="/users/edit">Account</a></li>
+<p></p>
+
+
+</ol>
+

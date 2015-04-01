@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Back', interventions_path %>
+<div class="intervention">
+
+<H2 class="title"><%= @intervention.title %></H2>
+<div class="image" style="background-image:url(<%= intervention_image(@intervention) %>)"></div>
+
+<H3 class="benefit">
+  <%= m @intervention.benefit %>
+</H3>
+
+<% if @intervention.principle %>
+ <H2 class="principal">Core Principle #<%= @intervention.principle_id %>: <%= @intervention.principle.name.upcase %></H2>
+<% else %>
+ <H2>SLOtility Extra</H2>
+<% end %>
+
+<p class="tracks">
+  <strong>SLOtility Diet Tracks:</strong> <%= @intervention.diseases.map(&:name).to_sentence.titleize %>
+</p>
+
+<br/>
+<% if @intervention.regimen!="" %>
+  <p>
+    <strong>Regimen:</strong>
+    <%= m @intervention.regimen %>
+  </p>
+<% end %>
+
+<% if @intervention.alternate_options!="" %>
+  <p>
+    <strong>Alternate options:</strong>
+    <%= m @intervention.alternate_options %>
+  </p>
+<% end %>
+
+<% if @intervention.maintenance_dose!="" %>
+  <p>
+    <strong>Maintenance dose:</strong>
+    <%= @intervention.maintenance_dose %>
+  </p>
+<% end %>
+
+<% if @intervention.safety_precautions!="" %>
+  <div class="safety_precautions">
+    <strong>Safety precautions:</strong>
+    <%= m @intervention.safety_precautions %>
+  </div>
+<% end %>
+
+
+</div>

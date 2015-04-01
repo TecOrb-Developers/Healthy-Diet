@@ -1,0 +1,13 @@
+<h1>Editing intervention</h1>
+
+<%= form_for(@intervention, url: intervention_path) do |f| %>
+ <%= render partial: 'form', locals: { f: f } %>
+<% end %>
+
+<div class="col-md-6 row">
+  <%= image_tag intervention_image(@intervention), class: 'img img-responsive img-thumbnail' %>
+</div>
+
+<div class="col-md-12 row">
+<%= link_to 'Delete', @intervention, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

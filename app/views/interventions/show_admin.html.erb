@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_intervention_path(@intervention) %> |
+<%= link_to 'Listing', index_admin_interventions_path %> | 
+<%= link_to 'New Intervention', new_intervention_path %> | 
+<%= link_to 'User’s view', intervention_path(@intervention) %>
+<p>
+  <strong>Name:</strong>
+  <%= @intervention.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @intervention.title %>
+</p>
+
+<p>
+  <strong>Abbrev:</strong>
+  <%= @intervention.abbrev %>
+</p>
+
+<p>
+  <strong>Benefit:</strong>
+  <%= m @intervention.benefit %>
+</p>
+
+<p>
+  <strong>Principle:</strong>
+  <%= @intervention.principle_id %>
+</p>
+
+ <p>
+  <strong>Tracks:</strong>
+  TBD <%#= @intervention.tracks.map { |item| link_to(item.display_name, item) }.join(", ").html_safe %>
+</p>
+
+<p>
+  <strong>Regimen:</strong>
+  <%= m @intervention.regimen %>
+</p>
+
+<p>
+  <strong>Alternate options:</strong>
+  <%= m @intervention.alternate_options %>
+</p>
+
+<p>
+  <strong>Maintenance dose:</strong>
+  <%= @intervention.maintenance_dose %>
+</p>
+
+<p>
+  <strong>Safety precautions:</strong>
+  <%= m @intervention.safety_precautions %>
+</p>
+
+<div class="col-md-6 row">
+  <%= image_tag intervention_image(@intervention), class: 'img img-responsive img-thumbnail' %>
+</div>
+
+ <div class="col-md-12 row">Created <%= time_ago_in_words(@intervention.created_at) %> ago 
+   <%- if @intervention.created_at != @intervention.updated_at -%>, 
+    modified <%= time_ago_in_words(@intervention.updated_at) %> ago
+   <% end %>
+ </div>
+
+

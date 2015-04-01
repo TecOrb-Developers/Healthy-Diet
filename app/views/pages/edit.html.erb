@@ -1,0 +1,9 @@
+<h1>Editing page</h1>
+
+<%= form_for(@page, url: page_path) do |f| %>
+ <%= render partial: 'form', locals: { f: f } %>
+<% end %>
+
+<span class="delete">
+  <%= link_to 'Delete', @page, method: :delete, data: { confirm: 'Are you sure you want to DELETE?' } %>
+</span>

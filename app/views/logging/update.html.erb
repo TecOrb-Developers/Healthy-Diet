@@ -1,0 +1,13 @@
+<%= render "dashboard/log_history" %>
+<%= form_for :update_log, url: "/logging/update/#{@current_count}", method: :post do |f| %>
+  <% @intervention_trials.each do |trial| %>
+    <h2>Did you take your <%= trial[:intervention].name.humanize %> on <%= @logging_date.to_s %>?</h2>
+    <%= f.label trial[:id], 'Yes' %>
+    <%= f.radio_button trial[:id], true, options = {:checked => trial[:taken]} %>
+    <%= f.label trial[:id], 'No' %>
+    <%= f.radio_button trial[:id], false, options = {:checked => trial[:taken] == false} %>
+  <% end %>
+  <br />
+  <%= hidden_field_tag :on_date, @logging_date.to_s %>
+  <%= f.submit 'Submit' %>
+<% end %>

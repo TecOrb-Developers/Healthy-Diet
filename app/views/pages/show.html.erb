@@ -1,0 +1,14 @@
+<%#= link_to 'Back', pages_path %>
+<% content_for :title do %>  <%# BUG: yield not working %>
+ @page.title
+<% end %>
+
+<div class="page">
+
+<H2 class="title"><%= @page.title %></H2>
+
+<%= m @page.body %>
+<% logger.info("++++++++++++") %>
+<%= render partial: @page.name rescue "" %>
+
+</div>

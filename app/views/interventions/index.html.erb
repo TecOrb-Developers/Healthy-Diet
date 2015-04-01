@@ -1,0 +1,16 @@
+<h1>Supplements
+<% if Rails.env.development? %>
+  <div class="admin"><%= link_to "Admin", "/interventions/index_admin" %></div>
+<% end %>
+</h1>
+
+<% @interventions.each do |instance| %>
+
+    <div class="intervention_listing" onclick="window.location='<%= intervention_path(instance) %>'">
+     <H2><%= instance.title %></H2>
+     <!-- TODO <p class="principle">Principle: <%#= instance.principle.name %> </p> -->
+     <!-- <p class="tracks">For  @instance.get_tracks() </p> -->
+    <div class="intervention_after" style="background-image:url(<%= intervention_image(instance) %>)"></div></div>
+
+<% end %>
+

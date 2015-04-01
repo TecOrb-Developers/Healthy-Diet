@@ -1,0 +1,19 @@
+<h1>User report</h1>
+
+<% @users_trials.each do |ut| %>
+  <h2>Group <%= ut[0].id %></h2>
+  <p><%= "start: #{ut[0].start_date} end: #{ut[0].end_date}" %></p>
+   <% ut[1].each do |u| %>
+     <% if u.present? %>
+    <li><%= link_to 'Details', user_details_reports_path(u.id) %>
+  <%= u.created_at.to_date %> user id: <%= u.id %> email: <%= u.email %>
+
+     <% if u.profile.nil? %>
+      No Profile
+     <% else %>
+       <%= render partial: 'profile', locals: { p: u.profile } %>
+     <% end %>
+    </li>
+  <% end %>
+   <% end %>
+<% end %>

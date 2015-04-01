@@ -1,0 +1,28 @@
+<!-- called from dashboard_controller.rb -->
+<!-- for new users who have never been in any trials -->
+<H1>SLOtility</H1>
+<H3>Your profile data pointed to several health issues for you to focus on.  Based on those issues we recommended several supplements to try.  We are looking for volunteers to participate in a series of 30-day trials.   in which you select one (or more) supplements to take consistently and record results daily.</H3>
+
+<H2>Your health goals</H2>
+<ul>
+  <li>Manage Diabeties</li>
+  <li>Lower High blood pressure</li>
+  <li>Weight loss</li>
+</ul>
+
+<H2>Recommended Supplements</H2>
+<small>(To be shown with images)</small>
+<ul>
+  <li><%= placeholder({text:"Cinnamon"}) %>Cinnamon <a href="Start trial">Start Trial</a></li>
+   <p>To help with weight loss and diabeties</p>
+   <p>3 tablespoons daily</p>
+   <p>Rating 4.5/5 in 25 trials</p>
+  <li><%= placeholder({text:"Konjac"}) %>Konjac <a href="Start trial">Start Trial</a></li>
+   <p>For lower high blood pressure, diabeties, and weight loss</p>
+   <p>Added to one meal a day in lieu of flour</p>
+   <p>Rating 4.0 of 5 in 125 trials</p>
+  <li>See all supplements...</li>
+</ul>
+
+<H1>Let's work together to help work on your health goals! <br/><%= link_to "Start a Trial today", "/dashboard/start_trial" %> </H1>
+

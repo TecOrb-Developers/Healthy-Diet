@@ -1,0 +1,11 @@
+<h1>Pages
+<% if Rails.env.development? %>
+  <div class="admin"><%= link_to "Admin", "/pages/index_admin" %></div>
+<% end %>
+</h1>
+
+<ul>
+  <% @pages.each do |instance| %>
+   <li><%= link_to instance.title, page_path(instance) %></li>
+  <% end %>
+</ul>

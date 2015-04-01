@@ -1,0 +1,112 @@
+<% if current_user %>
+<h3>Welcome back <%= current_user ? current_user.display_name : "" %>! Click on <%= link_to 'Dashboard', dashboard_index_path %> to continue your program.</h3>
+<% end %>
+<div class="row" style="background:#DDD">
+  <div class="col-xs-12 col-sm-6" style="padding-bottom:15px;">
+    <img src=<%= image_path("snail_logo_words.png")%> class="img-responsive" alt="???" style="padding-top:15px;">
+    <h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>SLO</strong></span>tility is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
+    <% if !current_user %>
+      <%= button_to 'Sign up now!', new_user_registration_path, class:"btn btn-success btn-lg btn-block", method:"get" %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-6" style="padding-top:50px;">
+    <div id="carousel-example-generic" class="carousel slide img-thumbnail" data-ride="carousel" >
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src=<%= image_path("slide-img.png") %> alt="???">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="item">
+          <img src=<%= image_path("slide-img4.png") %> alt="???">
+          <div class="carousel-caption">
+           
+          </div>
+        </div>
+        <div class="item">
+          <img src=<%= image_path("slide-img2.png") %> alt="???">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="item">
+          <img src=<%= image_path("slide-img8.png") %> alt="???">
+          <div class="carousel-caption">
+          
+          </div>
+        </div>
+        <div class="item">
+          <img src=<%= image_path("slide-img5.png") %> alt="???">
+          <div class="carousel-caption">
+           
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="arrow">&lt;&lt;</span> <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="arrow">&gt;&gt;</span> <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+      </a>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4 clickable" id="features" onclick='window.location="/pg/features"' >
+    <h2>At a Glance</h2>
+    <h3>Feel full = eat less. <small> If you eat foods which move slowly through your stomach, you will feel more full, eat less and maintain a healthier weight.</small> </h3>
+
+    <h3>We need your help. <small> Share your results so we learn which foods work best for making you feel full. </small></h3>
+
+    <h3>Works with any diet. <small> Regardless of what you eat, use SLOtility to eat less and feel more full. </small></h3>
+
+    <h3>Beyond weight loss. <small> Sixteen foods to help reduce your risk of diabetes, high blood pressure, and heart disease. </h3>
+    
+    <h3>Pay what you wish. <small> We let you decide what SLOtility is worth to you. </small></h3>
+    
+    <h3>Who are we? <small>Our team is based in Philadelphia and the creator, Frank Duffy, is a nutritionist and health-food researcher. </small></h3>
+    
+  </div>
+  <div class="col-sm-6 col-md-4 clickable" onclick='window.location="/pg/steps"'>
+    <h2>SLOtility Steps</h2>
+    <table id="i283"> 
+     <tr><td><img src=<%= image_path("step1.png") %> alt="???"></td><td><h3>Enter your info. <small> We collect demographic info and health data such as weight, blood pressure, cholesterol. </small></h3></td></tr>
+     <tr><td><img src=<%= image_path("step2.png") %> alt="???"></td><td><h3>Pick a supplement. <small> We analyze your profile and recommend supplements to choose from and how to take them. </small></h3> </td></tr>
+     <tr><td><img src=<%= image_path("step3.png") %> alt="???"></td><td><h3>Record results for month. <small> At the end of the month, you enter in your results that you’re tracking and along with everyone else’s data, we crowdsource the results to prime the next month’s cycle! </h3> </td></tr>
+    </table>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4" >
+    <h2>In the Media</h2>
+    <h3>CBS Philadelphia. <small> The Diet Trick You Probably Haven't Heard Of </small> </h3>
+    <img src=<%= image_path("cbs_video_thumbnail.png") %> style="width:100%" class="img-thumbnail clickable" onclick='window.location="http://philadelphia.cbslocal.com/2013/11/08/health-diet-trick-you-probably-never-heard-of/"' >
+  </div>    
+</div>
+
+
+<!--
+<nav class="navbar navbar-default navbar-fixed-bottom hidden-md hidden-lg" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+    </div>
+</nav>-->

@@ -1,0 +1,5 @@
+id, disease_id, name
+6 14  manage_weight
+7 15  decrease_diabetes_risk
+8 16  decrease_high_blood_pressure_risk
+9 17  decrease_heart_disease_risk

@@ -1,0 +1,40 @@
+Data management and policies:
+
+The database holds different types of data, there is "content" that is edited and maintained by an author and is relatively static. There is also "user" data which is created by users, and "system" data.  Each type of data may have specific processes for editing, deleting, creating, etc.  (Ideally) A content management system will let "editors" update and create new content data.
+
+For "content" data, it is important that there is only one master version.  It should be possible to edit that master data and load it into all other databases easily. Content data can be checked into source control. Content data is likely used across development, test, and production databases.  
+
+The tables holding content data are: diseases, variables, intervention_types, interventions, interventions_diseases, interventions_contradictions, and tracks.
+(Note: this data was originally held in db/seed.rb)  The master data file is now named: db/content_data.sql in source control.
+
+content_data.sql was generated using the command-line and only contains row data, no schema info.  If the schema changes, the content data should be regenerated using the command-line:
+
+pg_dump slotility_development --username=slotility --data-only --file=db/content_data.sql --no-owner --table=diseases --table=variables --table=intervention_types --table=interventions --table=interventions_diseases --table=interventions_contraindications --table=tracks  --table=principles --table=pages
+
+(More information on pg_dump and its options can be found at http://www.postgresql.org/docs/8.1/static/app-pgdump.html)
+
+The content data can be loaded into any database by deleting any existing content data, then loading content_data.sql using:
+
+psql -d slotility_development --username=slotility -f db/delete_content_data.sql
+psql -d slotility_development --username=slotility -f db/content_data.sql
+
+
+
+How to drop all tables and databases?
+PROBLEM: command % rake db:reset  RETURNS:
+PG::InsufficientPrivilege: ERROR:  permission denied to create database
+SOLUTION:
+dropdb slotility_development --username=slotility
+
+If you want to add a table to the db/content_data.sql file, then update the database, run a pg_dump with just that table.
+You should be able to paste that one table dump into content_data.sql, but there is a very strange CR/LF bug and you get the error: 
+psql:db/content_data.sql:248: ERROR:  invalid input syntax for integer:
+I tried using Unix, Windows, and Mac line endings, but nothing worked.  Just copying and pasting the file made it unloadable.
+I used this workaround for small sets: INSERT INTO tracks values (6,14,'manage_weight');
+Might also try copying text block into admin query tool.
+
+
+
+
+
+

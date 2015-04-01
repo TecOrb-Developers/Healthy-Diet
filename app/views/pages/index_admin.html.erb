@@ -1,0 +1,11 @@
+<h1>Pages
+  <div class="admin"><%= link_to 'New Page', new_page_path %></div>
+</h1>
+
+<% @pages.each do |instance| %>
+  <div class="pages_listing" onclick=<%= show_instance instance %> >
+   <H2><%= instance.title %> <small>(<%= instance.name %>)</small></H2>
+   <p><%= instance.body[0..100] %>...</p>
+   <div>(<%= instance.body.count(' ') %> words)</div>
+  </div>
+<% end %>

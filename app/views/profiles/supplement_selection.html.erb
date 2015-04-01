@@ -1,0 +1,32 @@
+<h1>Your Tracks</h1>
+<% if @tracks.length == 0 %>
+  <p>Please select <%= link_to 'Risk/Tracks', risk_assessment_profiles_path %> to choose one or more tracks.</p>
+<% else %>
+<ul>
+<% @tracks.each do |t| %>
+  <li><%= t.name.humanize %></li>
+<% end %>
+</ul>
+  <p>Select <%= link_to 'Risk/Tracks', risk_assessment_profiles_path %> to change your tracks.</p>
+<% end %>
+
+<h1>Supplement Selection</h1>
+<p>Please select one or more <%= link_to "Supplements", "/interventions" %> for your SLOtility program</p>
+<% if @supplement_selection_error.present? %>
+    <div id="error_explanation">
+      <p><%= @supplement_selection_error %></p>
+    </div>
+<% end %>
+<%= form_for :supplement_selection, url: supplement_selection_profiles_path do |f| %>
+  <p>
+  <%= fields_for :supplement_selection do %>
+    <% @supplements.each do |s| %>
+      <%= check_box_tag "supplement_selection[]", s.id, nil, :id => nil %><%= s.name.humanize %> <%= display_intervention_treatments(s, @tracks) %> <span style="color:red"><%= display_intervention_contraindications(s) %></span><br>
+    <% end %>
+  <% end %>
+  </p>
+
+  <p>
+  <%= f.submit "Select" %>
+  </p>
+<% end %>
