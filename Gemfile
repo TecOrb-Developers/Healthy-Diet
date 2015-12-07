@@ -36,7 +36,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.0.0'
 end
 
-gem 'devise'  #, :github => 'git://github.com/plataformatec/devise.git'
+gem 'devise', :git => 'http://github.com/plataformatec/devise.git'
 gem 'grocer'
 gem 'sidekiq'
 gem "therubyracer"

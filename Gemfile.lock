@@ -1,3 +1,15 @@
+GIT
+  remote: http://github.com/plataformatec/devise.git
+  revision: 45fc9644703282e831d03ea891d198406abd350e
+  specs:
+    devise (3.5.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -65,13 +77,6 @@ GEM
     connection_pool (2.2.0)
     daemons (1.2.3)
     debug_inspector (0.0.2)
-    devise (3.5.2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.8)
@@ -222,7 +227,7 @@ DEPENDENCIES
   carrierwave
   clockwork
   coffee-rails (~> 4.0.0)
-  devise
+  devise!
   formtastic
   grocer
   jbuilder (~> 1.2)
