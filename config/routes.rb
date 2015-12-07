@@ -1,4 +1,4 @@
-Slotility::Application.routes.draw do
+SLOtility::Application.routes.draw do
   
   get '/pg/:name', to: 'pages#show'
   if true # TEMP Rails.env.development?  # show ability to edit only in development for now.

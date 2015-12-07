@@ -1,4 +1,4 @@
-<div class="container" style="background-color:black; color:white;">
+<div class="container" style="background-color:green; color:white;">
   <style> /* hack because RAILS putting FORM and DIV around a button  */
    FORM.button_to { display:inline; } 
    FORM.button_to DIV { display:inline; } 
@@ -11,12 +11,12 @@
    </style>
   <% else %>
    <style>
-    .btn-default { background-color: white; color:black; font-weight:bold; border: 0px; border-right:1px; border-radius:0px;  text-shadow:none;}
+    .btn-default { background-color: white; color:green; font-weight:bold; border: 0px; border-right:1px; border-radius:0px;  text-shadow:none;}
    </style>
   <% end %>
   <div class="row" style="padding-left:5px;">
     <div class="btn-group btn-group-md">
-      <%= link_to "SLOtility", root_path, class:"btn btn-default active" %>
+      <%= link_to "Healthy-Diet", root_path, class:"btn btn-default active" %>
       <% if user_signed_in? -%>
         <%= link_to "Dashboard", dashboard_index_path, class:"btn btn-default", method:"get" %>
         <%= link_to "Profile", profiles_path, class:"btn btn-default" %>

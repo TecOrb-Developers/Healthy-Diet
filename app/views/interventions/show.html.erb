@@ -12,11 +12,11 @@
 <% if @intervention.principle %>
  <H2 class="principal">Core Principle #<%= @intervention.principle_id %>: <%= @intervention.principle.name.upcase %></H2>
 <% else %>
- <H2>SLOtility Extra</H2>
+ <H2>Healthy-Diet Extra</H2>
 <% end %>
 
 <p class="tracks">
-  <strong>SLOtility Diet Tracks:</strong> <%= @intervention.diseases.map(&:name).to_sentence.titleize %>
+  <strong>Healthy-Diet Diet Tracks:</strong> <%= @intervention.diseases.map(&:name).to_sentence.titleize %>
 </p>
 
 <br/>

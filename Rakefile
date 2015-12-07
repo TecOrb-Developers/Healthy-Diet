@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Slotility::Application.load_tasks
+SLOtility::Application.load_tasks

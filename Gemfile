@@ -17,13 +17,13 @@ end
 gem "newrelic_rpm"
 gem "bugsnag"
 
-group :development do
-  gem 'sqlite3'
-end
+# group :development do
+#   gem 'sqlite3'
+# end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 gem "pg"
  #gem 'rails_12factor', group: :production
@@ -86,3 +86,4 @@ gem 'rdiscount'  # markup processing
 gem 'carrierwave'  # image upload
 gem 'unicorn'
 gem 'redis'
+

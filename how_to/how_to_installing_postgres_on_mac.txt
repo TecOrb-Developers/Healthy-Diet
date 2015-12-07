@@ -5,7 +5,7 @@ Goal: Using Mac OS X, Mavericks
       May be using SQLite, but want to move to Postgres 
         because you are deploying to Heroku or another service that uses Postgres and you
         want to match the production database 
-      Existing Rails app (dev/slotility) that currently uses sqlite and want to change to postgres database
+      Existing Rails app (dev/SLOtility) that currently uses sqlite and want to change to postgres database
 
 1. Install postgres locally (using Homebrew)
    % brew postgresql
@@ -31,18 +31,18 @@ FOR EACH RAILS APP:
 
 3. Create a database user for the app where the username matches the app's name. 
 
-   % createuser slotility
+   % createuser SLOtility
 
 4. Create development and production databases with the user you just created 
    and a database name that also uses the name of your Rails app.
 
-   % createdb -Oslotility -Eutf8 slotility_development
-   % createdb -Oslotility -Eutf8 slotility_test       
+   % createdb -OSLOtility -Eutf8 SLOtility_development
+   % createdb -OSLOtility -Eutf8 SLOtility_test       
 
    Test that you can connecting to it using app username and app database name.
-   % psql -U slotility slotility_development
+   % psql -U SLOtility SLOtility_development
 
-5. Configure your app (slotility) to use postgres 
+5. Configure your app (SLOtility) to use postgres 
  
    Add to Gemfile:
       gem 'pg'
@@ -52,13 +52,13 @@ FOR EACH RAILS APP:
     development:
       adapter: sqlite3 CHANGE TO: postgresql
       encoding: unicode
-      database: db/development.sqlite3  CHANGE TO: slotility_development
+      database: db/development.sqlite3  CHANGE TO: SLOtility_development
       pool: 5
-      ADD: username: slotility
+      ADD: username: SLOtility
       ADD: password: 
 
    In your Rails directory, run database setup with:
-   % cd dev/slotility
+   % cd dev/SLOtility
    % rake db:setup
 
 6. Test app
@@ -66,7 +66,7 @@ FOR EACH RAILS APP:
    Show your app in a browser (http://localhost:3000/______)
 
    Optionally verify the database:
-   % psql -U slotility slotility_development
+   % psql -U SLOtility SLOtility_development
    List all tables:
    => \dt
    Show table definition for YOUR_TABLE_NAME:
@@ -77,7 +77,7 @@ FOR EACH RAILS APP:
 7. Loading data:
    Drop database:
    psql -d 
-   psql -d slotility_development -f db/seed_data.sql
+   psql -d SLOtility_development -f db/seed_data.sql
 
 
 

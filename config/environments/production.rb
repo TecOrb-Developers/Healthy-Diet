@@ -1,4 +1,4 @@
-Slotility::Application.configure do
+SLOtility::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -78,20 +78,21 @@ Slotility::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {host: 'slotility.herokuapp.com', protocol: 'http://' }
+  config.action_mailer.default_url_options = {host: 'SLOtility.herokuapp.com', protocol: 'http://' }
 
   #Mailer Code
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtpout.secureserver.net',
-  port:                  25,
-  domain:               'secureserver.net',
-  user_name:            'info@slo-tility.com',
-  password:             'skg4ij!!',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
+  :user_name => 'hospitalityapp1@gmail.com',
+  :password => 'Hospitalityapp12345',
+  :domain => 'gmail.com',
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+  }
 
   ENV["REDISTOGO_URL"] = 'redis://redistogo:a954d83a24f507043b894111243a250b@dab.redistogo.com:9231/'
   

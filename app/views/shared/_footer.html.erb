@@ -1,22 +1,22 @@
-<div class="container" style="background-color:black; color:white;">
+<div class="container" style="background-color:green; color:white;">
 
   <div class="row" style="padding-left:5px;">
     <div class="btn-group btn-group-md hidden-xs">
      <!--
      <button type="button" class="btn btn-default active">Home</button>
-     <button type="button" class="btn btn-default">About SLOtility</button>
+     <button type="button" class="btn btn-default">About Healthy Diet</button>
      <button type="button" class="btn btn-default">SOLtility Supplements</button>
      <button type="button" class="btn btn-default">Latest News</button>
  -->
  
-     <span style="float:left; padding-top:5px;padding-left:10px;">
+     <span style="float:left;padding-top:5px;padding-left:10px;">
       <%= link_to "Privacy policy", "/pg/privacy_policy" %>
       <% if current_user && current_user.admin? %>
        | <%= link_to "Admin", "/admins" %>
       <% end %>
     </span> 
     
-     <span style="float:right; padding-top:5px;padding-right:10px;">© Copyright 2014 SLOtility</span>
+     <span style="float:right; padding-top:5px;padding-right:10px;">© Copyright 2014 Healthy Diet</span>
     </div>
 
   </div>

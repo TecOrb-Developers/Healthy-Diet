@@ -102,9 +102,8 @@ BODY a {  /* HACK trying to overwrite the default so people can see what links t
   height:200px;
   position: absolute;
   z-index: 40;   
-  opacity: 0.5;
   &:hover {
-    opacity:0.2;
+    opacity:0.5;
   }
 }
 

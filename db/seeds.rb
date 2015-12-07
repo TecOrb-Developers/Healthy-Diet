@@ -48,7 +48,7 @@ safflower_oil = Intervention.create([{ :name => 'safflower_oil'}]).first
 ygd = Intervention.create([{ :name => 'YGD'}]).first
 griffonia = Intervention.create([{ :name => 'griffonia_simplicifolia'}]).first
 tamarind = Intervention.create([{ :name => 'malabar_tamarind'}]).first
-chia = Intervention.create([{ :name => '?chia'}]).first
+chia = Intervention.create([{ :name => 'chia'}]).first
 chocolate = Intervention.create([{ :name => 'cocoa'}]).first
 garlic = Intervention.create([{ :name => 'garlic'}]).first
 walnut = Intervention.create([{ :name => 'walnuts'}]).first

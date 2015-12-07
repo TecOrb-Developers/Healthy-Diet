@@ -1,6 +1,18 @@
 <div class="row col-xs-12 col-md-6 col-md-offset-3"> 
 
-	<h2>Sign up</h2>
+	
+
+</div>
+
+ <div class="col-xs-12 col-sm-6 col-md-6" >
+  	 <img src=<%= image_path("banner-health.jpg")%> class="img-responsive" alt="???" style="padding-top:15px;">
+    	<h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>HEALTHY </strong></span>Dieting is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
+    	<%# if !current_user %>
+      		<%#= button_to 'Sign up now!', new_user_registration_path, class:"btn btn-success btn-lg btn-block", method:"get" %>
+    	<%# end %>
+  </div> 
+<div class="col-xs-12 col-sm-6" style="padding-bottom:15px;">
+    <h2>Sign up</h2>
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>
@@ -18,5 +30,15 @@
 	<% end %>
 
 	<%= render "devise/shared/links" %>
+  </div>
+<br><br>
+<h2>Supplements</h2>
+  <% Intervention.first(10).each do |instance| %>
 
-</div>
+    <div class="intervention_listing" onclick="window.location='<%= intervention_path(instance) %>'">
+     <H2><%= instance.title %></H2>
+     <!-- TODO <p class="principle">Principle: <%#= instance.principle.name %> </p> -->
+     <!-- <p class="tracks">For  @instance.get_tracks() </p> -->
+    <div class="intervention_after" style="background-image:url(<%= intervention_image(instance) %>)"></div></div>
+
+<% end %>

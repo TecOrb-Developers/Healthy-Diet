@@ -1,4 +1,4 @@
-Slotility::Application.configure do
+SLOtility::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -34,11 +34,12 @@ Slotility::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtpout.secureserver.net',
-  port:                  25,
-  domain:               'secureserver.net',
-  user_name:            'info@slo-tility.com',
-  password:             'skg4ij!!',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
+  :user_name => 'hospitalityapp1@gmail.com',
+  :password => 'Hospitalityapp12345',
+  :domain => 'gmail.com',
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+  }
 end

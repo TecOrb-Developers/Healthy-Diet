@@ -5,10 +5,165 @@
 
 <div class="page">
 
+
+
+
 <H2 class="title"><%= @page.title %></H2>
 
-<%= m @page.body %>
-<% logger.info("++++++++++++") %>
-<%= render partial: @page.name rescue "" %>
 
+
+<%= m @page.body %>
+<%= render partial: @page.name rescue "" %>
+<% if params[:name]=="principles"%>
+
+<h2 class="title">The Core Principles</h2>
+
+<p>You can start using core Healthy Diet principles right away to start eating healthier while feeling less hungry. Try to include as many of these principles as you can into your meals. As you incorporate the techniques, you should be able to eat smaller portions and still feel satisfied. The goal is to habituate to these techniques so you don’t have to think as much or feel you have to force yourself to ‘comply’ with the diet. These are good things to keep in mind on your next trip to the grocery store!</p>
+
+<style>
+.principles P { margin-left:30px;}
+.principle span { margin-right:5px; color: Green;}
+</style>
+<div class="principles">
+  <div class="principle">
+    <h3><span>1.</span>Go Low Carb</h3>
+    <p class="description"></p><p>Carbohydrate (carbs = sugar and breads/starches) move through your stomach relatively quickly, and so won’t fill you up. So, choose low carb, high vegetable and protein (meat/fish/dairy) foods when planning your meals.</p>
+
+<ul>
+<li><p>A simple starting point is to use your base meals, and on purpose eat 1⁄2 of the portion you normally would of carb foods, and then on purpose eat xtra vegetables or protein foods to fill you up- for example, if dinner is rice + beans, then eat 1⁄2 the rice you normally would and double the beans or add a salad to help fill you up. In this way, you can slowly wean yourself down on carbs.</p></li>
+<li><p>The best way to eat carbs is late in the meal, when food in your stomach will slow the absorption of the carbs. This is the traditional way of eating dessert (sweets) at the end of the meal, which will also help control your portion size.</p></li>
+<li><p>The best time of day to eat carbs is after exercise, or at the 2nd meal of the day (@ noon)- this is when your body is more insulin sensitive. So for example if you love fruit, try to snack on it after exercise or with lunch.</p></li>
+</ul>
+
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>2.</span>Increase Soluble Fiber</h3>
+    <p class="description"></p><p>Soluble fiber slows stomach motility<sup>1</sup>. So, choose more high soluble fiber foods when planning your meals, such as:</p>
+
+<ul>
+<li><p>Apples, barley, (dried) beans/peas (refried beans, baked beans, black-eyed peas, lentils, black, pinto, northern, fava, navy, kidney, garbanzo, soy), oranges, carrots, oatmeal, nuts + seeds (pumpkin seeds, soy nuts, chunky nut butters), Uncle Sam cereal are all good sources- for more on soluble fiber, see the Konjac Healthy Diet Diet BASIC Supplement on p.9.</p></li>
+<li><p>Aim for 7 grams of soluble fiber each day (about 3 servings per day), choosing foods from the list above. Increase your fiber intake gradually, over 2 or 3 weeks, so your stomach can adapt to the added bulk without discomfort. Drink plenty of fluids, at least 6-8 cups of caffeine-free liquid daily.</p></li>
+</ul>
+
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>3.</span>Preload Liquids</h3>
+    <p class="description"></p><p>Preloading liquids means drinking your liquids before the meal. In this way, there is a primer to slow stomach motility for the meal, which should enable you to eat smaller portions while feeling satisfied<sup>2</sup>. Try drinking your liquids 15 minutes before your meal, rather than drinking them with the meal. Cold liquids work the best.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>4.</span>Preload Fat Liquids</h3>
+    <p class="description"></p><p>Drink fatty liquids before or early in the meal- You want the fat to hit the duodenum early, which sends a satiety signal to the brain. For example, drink cold whole milk before the meal.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>5.</span>Preload Soup</h3>
+    <p class="description"></p><p>Try soup right before your meal- see The Smooth Tomato Soup Healthy Diet Diet BASIC Supplement.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>6.</span>Preload Water</h3>
+    <p class="description"></p><p>Drink 2 cups of cold water 30 minutes before your meal. This will help you to eat less.- See The Water Preload Healthy Diet Diet BASIC Supplement.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>7.</span>Preload Acidic Liquids</h3>
+    <p class="description"></p><p>Acidic liquids slow stomach emptying<sup>3</sup>, so try preloading citrus drinks (tomato/grapefruit/lemon/OJ) or soups just before your meal.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>8.</span>Spicy Food</h3>
+    <p class="description"></p><p>Spicy food slows down stomach emptying: adding vinegar, capsaicin (red pepper) and cinnamon to your foods will help you to eat less. For more information on how to incorporate these spices into your diet, see the Vinegar, the Capsaicin, and the Cinnamon Healthy Diet Diet BASIC Supplements.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>9.</span>Add Fat</h3>
+    <p class="description"></p><p>Fat slows stomach motility- solid fat is best<sup>3</sup>. Try fish fat and plant fat (eg. nuts, avocado), which are healthier than animal fat; or try yogurt.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>10.</span>Red Wine</h3>
+    <p class="description"></p><p>Red wine slows stomach emptying. Don’t preload wine- for more information on how to incorporate wine into your diet, see The Red Wine Healthy Diet Diet BASIC Supplement.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>11.</span>Cold Food</h3>
+    <p class="description"></p><p>Cold food moves slower through your stomach than hot food, especially early in the meal<sup>4</sup>. For example, a cold soup appetizer is a Healthy Diet food.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>12.</span>Chew Gum</h3>
+    <p class="description"></p><p>Chewing gum may affect satiety by increasing stomach fullness via air swallowing meal<sup>5</sup>. Ok, ok, before dentists burn this book, make sure it’s sugarless gum, or brush your teeth afterwards.</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>13.</span>Use Drinking Straws</h3>
+    <p class="description"></p><p>Drinking straws slow down drinking and increase air swallowing<sup>6</sup>, both of which can help you to eat less. So start to use drinking straws- Ok,ok, if you’re in a bar, you probably don’t want to use a straw for social reasons...then again you’ll feel better faster ;)</p>
+<p></p>
+  </div>
+  <div class="principle">
+    <h3><span>14.</span>Supplements</h3>
+    <p class="description"></p><p>For more information on the supplements YGD and Griffonia Simplicifolia, see The YGD and Griffonia Simplicifolia Healthy Diet Diet BASIC Supplements.</p>
+<p></p>
+  </div>
+</div>
+ 
+
+</div>
+    </div>
+   
+
+<%elsif params[:name]=="steps"%>
+<div class="col-xs-12 col-sm-6" style="padding-bottom:15px;">
+    <img src=<%= image_path("slide-img5.png")%> class="img-responsive" alt="???" style="padding-top:15px;">
+    <h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>Healthy </strong></span>Diet is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
+    
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4" >
+    <h2>In the Media</h2>
+    <h3>CBS Philadelphia. <small> The Diet Trick You Probably Haven't Heard Of </small> </h3>
+    <img src=<%= image_path("vedio.jpeg") %> style="width:100%" class="img-thumbnail clickable" onclick='window.location="http://philadelphia.cbslocal.com/2013/11/08/health-diet-trick-you-probably-never-heard-of/"' >
+  </div>
+
+<div class="col-lg-12 col-md-4 clickable" onclick='window.location="/pg/steps"'>
+    <h2>Healthy-Diet Steps :</h2><br><br>
+    <table id="i283"> 
+     <tr><td><img src=<%= image_path("step1.png") %> alt="???"></td><td><h3>Enter your info.<br><br> <small> We collect demographic info and health data such as weight, blood pressure, cholesterol. </small><br><br></h3></td></tr>
+     <tr><td><img src=<%= image_path("step2.png") %> alt="???"></td><td><h3>Pick a supplement. <br><br><small> We analyze your profile and recommend supplements to choose from and how to take them. </small><br><br></h3> </td></tr>
+     <tr><td><img src=<%= image_path("step3.png") %> alt="???"></td><td><h3>Record results for month.<br><br> <small> At the end of the month, you enter in your results that you’re tracking and along with everyone else’s data, we crowdsource the results to prime the next month’s cycle! </h3> </td></tr>
+    </table>
+  </div>
+
+
+
+   
+
+
+<%else%>
+<div class="col-lg-12 col-md-4 clickable" onclick='window.location="/pg/steps"'>
+    <h2>Healthy-Diet Steps :</h2><br><br>
+    <table id="i283"> 
+     <tr><td><img src=<%= image_path("step1.png") %> alt="???"></td><td><h3>Enter your info.<br><br> <small> We collect demographic info and health data such as weight, blood pressure, cholesterol. </small><br><br></h3></td></tr>
+     <tr><td><img src=<%= image_path("step2.png") %> alt="???"></td><td><h3>Pick a supplement. <br><br><small> We analyze your profile and recommend supplements to choose from and how to take them. </small><br><br></h3> </td></tr>
+     <tr><td><img src=<%= image_path("step3.png") %> alt="???"></td><td><h3>Record results for month.<br><br> <small> At the end of the month, you enter in your results that you’re tracking and along with everyone else’s data, we crowdsource the results to prime the next month’s cycle! </h3> </td></tr>
+    </table>
+  </div>
+
+<div class="col-xs-12 col-sm-6" style="padding-bottom:15px;">
+    <img src=<%= image_path("slide-img5.png")%> class="img-responsive" alt="???" style="padding-top:15px;">
+    <h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>Healthy </strong></span>Diet is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
+    <% if !current_user %>
+      <%= button_to 'Sign up now!', new_user_registration_path, class:"btn btn-success btn-lg btn-block", method:"get" %>
+    <% end %>
+  </div>
+
+   <div class="col-xs-12 col-sm-6 col-md-4" >
+    <h2>In the Media</h2>
+    <h3>CBS Philadelphia. <small> The Diet Trick You Probably Haven't Heard Of </small> </h3>
+    <img src=<%= image_path("vedio.jpeg") %> style="width:100%" class="img-thumbnail clickable" onclick='window.location="http://philadelphia.cbslocal.com/2013/11/08/health-diet-trick-you-probably-never-heard-of/"' >
+  </div>   
+<%end%>
 </div>

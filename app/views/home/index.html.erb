@@ -3,8 +3,8 @@
 <% end %>
 <div class="row" style="background:#DDD">
   <div class="col-xs-12 col-sm-6" style="padding-bottom:15px;">
-    <img src=<%= image_path("snail_logo_words.png")%> class="img-responsive" alt="???" style="padding-top:15px;">
-    <h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>SLO</strong></span>tility is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
+    <img src=<%= image_path("healthy-eating.png")%> class="img-responsive" alt="???" >
+    <h3 onclick='window.location="/pg/intro"' class="clickable"><span style="color:#333"><strong>Healthy </strong></span>diet is a new diet <small style="color:#666">based on eating foods that move slowly through your stomach to make you feel more full and eat less, thus helping you manage your weight without the pain of traditional diets</small></h3>
     <% if !current_user %>
       <%= button_to 'Sign up now!', new_user_registration_path, class:"btn btn-success btn-lg btn-block", method:"get" %>
     <% end %>
@@ -14,10 +14,10 @@
     <div id="carousel-example-generic" class="carousel slide img-thumbnail" data-ride="carousel" >
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         <li data-target="#carousel-example-generic" data-slide-to="4"></li>
       </ol>
 
@@ -71,17 +71,17 @@
 
     <h3>We need your help. <small> Share your results so we learn which foods work best for making you feel full. </small></h3>
 
-    <h3>Works with any diet. <small> Regardless of what you eat, use SLOtility to eat less and feel more full. </small></h3>
+    <h3>Works with any diet. <small> Regardless of what you eat, use Healthy-Diet to eat less and feel more full. </small></h3>
 
     <h3>Beyond weight loss. <small> Sixteen foods to help reduce your risk of diabetes, high blood pressure, and heart disease. </h3>
     
-    <h3>Pay what you wish. <small> We let you decide what SLOtility is worth to you. </small></h3>
+    <h3>Pay what you wish. <small> We let you decide what Healthy-Diet is worth to you. </small></h3>
     
     <h3>Who are we? <small>Our team is based in Philadelphia and the creator, Frank Duffy, is a nutritionist and health-food researcher. </small></h3>
     
   </div>
   <div class="col-sm-6 col-md-4 clickable" onclick='window.location="/pg/steps"'>
-    <h2>SLOtility Steps</h2>
+    <h2>Healthy-Diet Steps</h2>
     <table id="i283"> 
      <tr><td><img src=<%= image_path("step1.png") %> alt="???"></td><td><h3>Enter your info. <small> We collect demographic info and health data such as weight, blood pressure, cholesterol. </small></h3></td></tr>
      <tr><td><img src=<%= image_path("step2.png") %> alt="???"></td><td><h3>Pick a supplement. <small> We analyze your profile and recommend supplements to choose from and how to take them. </small></h3> </td></tr>
@@ -91,7 +91,7 @@
   <div class="col-xs-12 col-sm-6 col-md-4" >
     <h2>In the Media</h2>
     <h3>CBS Philadelphia. <small> The Diet Trick You Probably Haven't Heard Of </small> </h3>
-    <img src=<%= image_path("cbs_video_thumbnail.png") %> style="width:100%" class="img-thumbnail clickable" onclick='window.location="http://philadelphia.cbslocal.com/2013/11/08/health-diet-trick-you-probably-never-heard-of/"' >
+    <img src=<%= image_path("vedio.jpeg") %> style="width:100%" class="img-thumbnail clickable" onclick='window.location="http://philadelphia.cbslocal.com/2013/11/08/health-diet-trick-you-probably-never-heard-of/"' >
   </div>    
 </div>
 

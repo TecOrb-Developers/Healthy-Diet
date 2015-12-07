@@ -32,18 +32,10 @@ ActiveRecord::Schema.define(version: 20141106121330) do
   end
 
   create_table "intervention_trials", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "intervention_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
-  end
-
-  create_table "intervention_trials_bak", id: false, force: true do |t|
-    t.integer  "id"
-    t.integer  "user_id"
-    t.integer  "intervention_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.integer "user_id"
+    t.integer "intervention_id"
+    t.date    "start_date"
+    t.date    "end_date"
   end
 
   create_table "intervention_types", force: true do |t|
@@ -51,36 +43,25 @@ ActiveRecord::Schema.define(version: 20141106121330) do
   end
 
   create_table "intervention_uses", force: true do |t|
-    t.integer  "intervention_trial_id",                 null: false
-    t.datetime "on_date",                               null: false
-    t.boolean  "taken"
-    t.integer  "user_id"
-    t.integer  "intervention_id"
-    t.integer  "trial_id"
-    t.boolean  "pending",               default: false
+    t.integer "intervention_trial_id",                 null: false
+    t.date    "on_date",                               null: false
+    t.boolean "taken"
+    t.integer "user_id"
+    t.integer "intervention_id"
+    t.integer "trial_id"
+    t.boolean "pending",               default: false
   end
 
   add_index "intervention_uses", ["intervention_id"], name: "index_intervention_uses_on_intervention_id", using: :btree
   add_index "intervention_uses", ["trial_id"], name: "index_intervention_uses_on_trial_id", using: :btree
   add_index "intervention_uses", ["user_id"], name: "index_intervention_uses_on_user_id", using: :btree
 
-  create_table "intervention_uses_bak", id: false, force: true do |t|
-    t.integer  "id"
-    t.integer  "intervention_trial_id"
-    t.datetime "on_date"
-    t.boolean  "taken"
-    t.integer  "user_id"
-    t.integer  "intervention_id"
-    t.integer  "trial_id"
-  end
-
   create_table "interventions", force: true do |t|
-    t.string   "name"
+    t.string   "name",               null: false
     t.string   "title"
     t.string   "abbrev"
     t.text     "benefit"
     t.integer  "principle_id"
-    t.string   "tracks"
     t.text     "regimen"
     t.text     "alternate_options"
     t.text     "maintenance_dose"
@@ -115,11 +96,6 @@ ActiveRecord::Schema.define(version: 20141106121330) do
     t.text   "description"
   end
 
-  create_table "principles_interventions", force: true do |t|
-    t.integer "principles_id"
-    t.integer "interventions_id"
-  end
-
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "first_name"
@@ -132,22 +108,14 @@ ActiveRecord::Schema.define(version: 20141106121330) do
     t.datetime "updated_at"
   end
 
-  create_table "tagphotos", force: true do |t|
-    t.string   "name"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tracks", force: true do |t|
     t.integer "disease_id", null: false
     t.string  "name",       null: false
   end
 
-  create_table "trials", id: false, force: true do |t|
-    t.integer "id",         null: false
-    t.date    "start_date", null: false
-    t.date    "end_date"
+  create_table "trials", force: true do |t|
+    t.date "start_date", null: false
+    t.date "end_date",   null: false
   end
 
   create_table "users", force: true do |t|
@@ -161,9 +129,9 @@ ActiveRecord::Schema.define(version: 20141106121330) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin"
     t.boolean  "settings",               default: true
   end
 
@@ -186,12 +154,6 @@ ActiveRecord::Schema.define(version: 20141106121330) do
   create_table "users_trials", force: true do |t|
     t.integer "user_id",  null: false
     t.integer "trial_id", null: false
-  end
-
-  create_table "users_trials_1", id: false, force: true do |t|
-    t.integer "id"
-    t.integer "user_id"
-    t.integer "trial_id"
   end
 
   create_table "users_variables", force: true do |t|

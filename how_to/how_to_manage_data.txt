@@ -9,14 +9,14 @@ The tables holding content data are: diseases, variables, intervention_types, in
 
 content_data.sql was generated using the command-line and only contains row data, no schema info.  If the schema changes, the content data should be regenerated using the command-line:
 
-pg_dump slotility_development --username=slotility --data-only --file=db/content_data.sql --no-owner --table=diseases --table=variables --table=intervention_types --table=interventions --table=interventions_diseases --table=interventions_contraindications --table=tracks  --table=principles --table=pages
+pg_dump SLOtility_development --username=SLOtility --data-only --file=db/content_data.sql --no-owner --table=diseases --table=variables --table=intervention_types --table=interventions --table=interventions_diseases --table=interventions_contraindications --table=tracks  --table=principles --table=pages
 
 (More information on pg_dump and its options can be found at http://www.postgresql.org/docs/8.1/static/app-pgdump.html)
 
 The content data can be loaded into any database by deleting any existing content data, then loading content_data.sql using:
 
-psql -d slotility_development --username=slotility -f db/delete_content_data.sql
-psql -d slotility_development --username=slotility -f db/content_data.sql
+psql -d SLOtility_development --username=SLOtility -f db/delete_content_data.sql
+psql -d SLOtility_development --username=SLOtility -f db/content_data.sql
 
 
 
@@ -24,7 +24,7 @@ How to drop all tables and databases?
 PROBLEM: command % rake db:reset  RETURNS:
 PG::InsufficientPrivilege: ERROR:  permission denied to create database
 SOLUTION:
-dropdb slotility_development --username=slotility
+dropdb SLOtility_development --username=SLOtility
 
 If you want to add a table to the db/content_data.sql file, then update the database, run a pg_dump with just that table.
 You should be able to paste that one table dump into content_data.sql, but there is a very strange CR/LF bug and you get the error: 

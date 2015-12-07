@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def login
   	user = User.find_by(email: params[:user][:email])
  	  if user && user.valid_password?(params[:user][:password])
-      p "*********************************************"
       sign_in :user, user 
       profile = user.profile
       first_name = ""; last_name = ""
@@ -147,7 +146,6 @@ class UsersController < ApplicationController
     end               
   end  
   
-
   def notification
     notifications = Array.new
     msg = "Notification has been successfully fetched."
@@ -174,7 +172,6 @@ class UsersController < ApplicationController
                     response_message: msg,
                     notification: notifications
                  }
-    
   end  
 
   def forgot_password
@@ -201,7 +198,7 @@ class UsersController < ApplicationController
       interventionz << i.attributes.except("image").merge!(:picture => intervention_image(i), :diseases => i.diseases.map(&:name).to_sentence.titleize)}
     supplements[:basic] = interventionz
     
-   Intervention.order("id ASC").last(16).each{|i| 
+    Intervention.order("id ASC").last(16).each{|i| 
       interventions << i.attributes.except("image").merge!(:picture => intervention_image(i), :diseases => i.diseases.map(&:name).to_sentence.titleize)}
     supplements[:extras] = interventions
     
@@ -341,7 +338,7 @@ class UsersController < ApplicationController
     end  
 
   def intervention_image intervention
-    image = (intervention.image.url == "/intervention_images/placeholder_name") ? ("http://slotility.herokuapp.com/assets/intervention/#{intervention.name}.png") : "http://slotility.herokuapp.com/"+intervention.image.url
+    image = (intervention.image.url == "/intervention_images/placeholder_name") ? ("http://SLOtility.herokuapp.com/assets/intervention/#{intervention.name}.png") : "http://SLOtility.herokuapp.com/"+intervention.image.url
     return image
   end
 

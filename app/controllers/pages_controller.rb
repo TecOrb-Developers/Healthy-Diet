@@ -16,6 +16,7 @@ class PagesController < ApplicationController
   # GET /interventions/1
   # GET /interventions/1.json
   def show
+    @page = Page.new
   end
 
   def show_admin

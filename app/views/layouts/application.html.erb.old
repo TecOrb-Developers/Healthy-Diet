@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title><%= h(yield(:title) || "Slotility") %></title>
+    <title><%= h(yield(:title) || "Healthy Diet") %></title>
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag :application %>

@@ -1,6 +1,6 @@
 BOTH TODO-------------------------------------
 NEW: ------------
-BUG/ERROR: when resetting password, got error to: http://slotility.herokuapp.com/users/password
+BUG/ERROR: when resetting password, got error to: http://SLOtility.herokuapp.com/users/password
 
 MIKE'S CURRENT FOCUS:------------------------
 FIX MIKE: need to change drop-downs to text fields.  Make sure validations work on fields.  Ranges in helper.
@@ -45,16 +45,16 @@ BUG: double spaces and weird spaces in Chrome for filling out form.
 
 DONE============================
 BUG: header nav styles are not consistent.  changed button_to to link_to
-BUG: error page when selecting two tracks after creating new profile  url http://slotility.herokuapp.com/profiles/supplement_selection
+BUG: error page when selecting two tracks after creating new profile  url http://SLOtility.herokuapp.com/profiles/supplement_selection
     Issue: invalid data.
 BUG: CSS files not loading so images do not appear.  Check serving of images.
-  http://slotility.herokuapp.com/interventions now empty between "Supplements" header and footer
+  http://SLOtility.herokuapp.com/interventions now empty between "Supplements" header and footer
   PROBLEM: interventions table is empty.  Try to restore content_data.sql.  ISSUE:
     psql:db/content_data.sql:86: ERROR:  value too long for type character varying(255)
     SOLUTION: look at schema.rb and verify text data.
     On heroku database, manually changed the field type of maintenance from varchar(255) to text.
 DONE CSS files not loading so images do not appear.  Check serving of images.  Precompiled assets. 
-BUG-CORRECT: http://slotility.herokuapp.com/admins has error (see logs) because admins current available only in development
+BUG-CORRECT: http://SLOtility.herokuapp.com/admins has error (see logs) because admins current available only in development
 DONE dashboard UI spec and UI walkthrough signup and profile.  Content for flow. 
 DONE user testing with new person who has never seen "dashboard" before.  Put revised UI in how_to/dashboard_spec.txt
 DONE MIKE: erase and push content updates to Heroku 

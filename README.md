@@ -1,2 +1,2 @@
-slotility
+SLOtility
 =========

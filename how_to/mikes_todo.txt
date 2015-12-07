@@ -37,7 +37,7 @@ TODO #2 new views for getting user input.
 
 TODO log supplements
 
-TODO 'my slotility' to be dashboard.  Slotility.com.  When you sign in, goes to dashboard.  Require first last gender, birthdate.   Enter date for birthdate.  enter age as integer or date.  all fields optional.  Dashboard, fill in profile on profile tab.
+TODO 'my SLOtility' to be dashboard.  SLOtility.com.  When you sign in, goes to dashboard.  Require first last gender, birthdate.   Enter date for birthdate.  enter age as integer or date.  all fields optional.  Dashboard, fill in profile on profile tab.
 
 
 
@@ -164,7 +164,7 @@ can't have one controller
 
 render as json  RESTFUL to create a new trial.   more complicated.
 
-Mark: url for trial.  slotility.com/dashboard   
+Mark: url for trial.  SLOtility.com/dashboard   
 
 /trial/
 

@@ -7,12 +7,12 @@ psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U f
 
 Database: deapr1bc4cuec3
 
-First test with slotility.  
+First test with SLOtility.  
 
 % git push heroku master
 
 Take development database and move to production:
-$ heroku pg:push slotility_development DATABASE_URL --app slotility 
+$ heroku pg:push SLOtility_development DATABASE_URL --app SLOtility 
 
 psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/delete_content_data.sql
 psql -h ec2-54-204-42-178.compute-1.amazonaws.com -p 5432 -d deapr1bc4cuec3 -U fzxruwdtmavxcb -f db/content_data.sql
@@ -23,10 +23,10 @@ Assets should be precompiled on development machine.
 RAILS_ENV=production bundle exec rake assets:precompile
 
 
-To git@heroku.com:slotility.git
+To git@heroku.com:SLOtility.git
    b1036e4..6b1f318  master -> master
 
-http://slotility.herokuapp.com  WORKED
+http://SLOtility.herokuapp.com  WORKED
 
 If something errors, check logs:
 heroku logs --tail
@@ -35,7 +35,7 @@ and refresh page
 
 If you are the application owner check the logs for more information
 
-https://dashboard.heroku.com/apps/slotility/activity
+https://dashboard.heroku.com/apps/SLOtility/activity
 
 % heroku pg:psql
 ---> Connecting to HEROKU_POSTGRESQL_IVORY_URL (DATABASE_URL)
@@ -46,11 +46,11 @@ deapr1bc4cuec3=>
 https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on
 
 Take production database and move to development database:
-$ heroku pg:pull HEROKU_POSTGRESQL_BLUE_URL slotility_development --app slotility  
+$ heroku pg:pull HEROKU_POSTGRESQL_BLUE_URL SLOtility_development --app SLOtility  
 
 Take development database and move to production:
 
-$ heroku pg:push slotility_development DATABASE_URL --app slotility  
+$ heroku pg:push SLOtility_development DATABASE_URL --app SLOtility  
  !    Remote database is not empty.
  !    Please create a new database, or use `heroku pg:reset`
 

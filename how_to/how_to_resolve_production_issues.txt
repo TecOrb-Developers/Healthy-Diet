@@ -1,10 +1,10 @@
 How to resolve production issues
 
-If http://slotility.herokuapp.com returns: We're sorry, but something went wrong.
+If http://SLOtility.herokuapp.com returns: We're sorry, but something went wrong.
 
 Check logs:
 % heroku logs --tail
-    2014-01-20T01:32:41.079090+00:00 heroku[router]: at=info method=GET path=/ host=slotility.herokuapp.com request_id=cdc26dc3-4e06-4359-9219-058e6945fb0a fwd="68.83.138.180" dyno=web.1 connect=1ms service=10085ms status=500 bytes=1266
+    2014-01-20T01:32:41.079090+00:00 heroku[router]: at=info method=GET path=/ host=SLOtility.herokuapp.com request_id=cdc26dc3-4e06-4359-9219-058e6945fb0a fwd="68.83.138.180" dyno=web.1 connect=1ms service=10085ms status=500 bytes=1266
     2014-01-20T01:32:51.115955+00:00 app[web.1]: I, [2014-01-20T01:32:31.015425 #2]  INFO -- : Started GET "/" for 68.83.138.180 at 2014-01-20 01:32:31 +0000
     2014-01-20T01:32:51.115955+00:00 app[web.1]: I, [2014-01-20T01:32:41.017613 #2]  INFO -- : ** [Bugsnag] Notifying http://notify.bugsnag.com of ActiveRecord::ConnectionTimeoutError from api_key 5459c067b730b95a14fd3ee8f3958af7
     2014-01-20T01:32:51.115955+00:00 app[web.1]: F, [2014-01-20T01:32:41.089622 #2] FATAL -- : 

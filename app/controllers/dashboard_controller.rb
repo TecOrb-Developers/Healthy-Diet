@@ -39,8 +39,8 @@ class DashboardController < ApplicationController
           if @trials.count < 5
             today = Time.zone.now.to_date
             6.times do |i|
-              next_id = (Trial.last.id + 1)
-              start_date = (Trial.last.start_date.beginning_of_week() + 7.days)
+              next_id = Trial.last.present? ?  (Trial.last.id + 1) : 0
+              start_date = Trial.last.present? ?  (Trial.last.start_date.beginning_of_week() + 7.days) : Time.now
               end_date = start_date + 28.days
               Trial.create(id: next_id, start_date: start_date, end_date: end_date)
             end
